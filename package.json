@@ -1,0 +1,24 @@
+{
+  "name": "innovation-sandbox",
+  "version": "1.0.0",
+  "description": "npm package for innovation snadbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enyata/innovation-sandbox-node.git"
+  },
+  "author": "Enyata",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enyata/innovation-sandbox-node/issues"
+  },
+  "homepage": "https://github.com/enyata/innovation-sandbox-node#readme",
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5"
+  }
+}
