@@ -1,13 +1,232 @@
+const faker = require('faker');
+const utf8 = require('utf8');
+const hash = require('../../lib/nibss/common/Hash');
+
 exports.reset = {
     Server: 'Cowboy',
-    aes_key: '9+CZaWqfyI/fwezX',
+    aes_key: utf8.encode(faker.random.alphaNumeric(16)),
     Responsecode: '00',
-    Password: "^o'e6EXK5T ~^j2=",
-    Ivkey: 'eRpKTBjdOq6T67D0',
+    password: faker.random.alphaNumeric(7),
+    ivkey: utf8.encode(faker.random.alphaNumeric(16)),
 };
-exports.VerifySingleBVN = '59f77a1c4b1eb7cfaded2103869e064186fef68e029d32190a41d8d48209defec7d893a510f36b059d17633ca8896a43336925f6baf35faa80752cd8b03bbd7ace2e7e82fb78507fcceb46b34e88585a4bab167234526a683960297faaa4cd2fe3d6fea04a24bfdedcdc15f1cc017f6bff3318ba12f617c3c9236fa7482c98cf4ca0c8320989b27412c6fc119a8151b07f3171ee50b0cc0594e02a7eef4d18a5fbcd607aeb3e6fb8a370040af261970d85eae345d5f26437314497192658dcb7b8e1feb6b48e4a5591e92e17eddd2cd256916d298597a66dbf197d6ff5d70c0a775666aae43098b382dafb851f2faeb02cc369adc2a745267bc0b88356d6589b81f8bedb91fef2b40296a0d67b3d90edd648d95e8e1609cf3b83265ba72d7476012cca3897a4cc4f9290cf9b8d2440a7';
-exports.VerifyMultipleBVN = '59f77a1c4b1eb7cfaded2103869e064186fef68e029d32190a41d8d48209defe48e38f0a76b2b07f70cfe23b0f8821bb4a699d8ea6328fcc6d5feb696bf275e9cdc81eb7e97eb33aae65bd0e066fbefcab85d8146383052be90ee41b997513d7bb94041d42844514d58e4a5b68eaab0dfed4207e1b48156fe145c8714d7a57a7efe83332ca1762abde670961514d2a16d05d71baff60bbf11d82ac0d55ce9df869f87caef867cdb86bddcf5b358e36359465c18a9e9bda6187a9eb9f2c5e3fb2fd58576bc2c6d739f640bbfd104c359350e5e7a4f1187f926fc7d50eacaa1f6a97decae67f7e8d8e26c2d75d2665a7a475cb9e87c153a28f0094a517c00cfd803b329a8f9214642f29acb51f01f2e5c0ef5727a668ff35f61e68bee9d76807c442cdad2d7d5f5743732674268a6a16a9e61a23ba8b1401775f2b484a977fa577003fac9590ba71fb1b14bdb39dc5d962208b8619adf2d7802be83843b678dad373d0a6a893ff5420c2e09d6c045ad8546edb2323beda28d400f64dc1974759447e5de35fb76a1cfcecc45b0836d6cbeb64c4179ceadccbb7e4b1d1eb6f80fcc7eed893cf11401a0a1f2fdf89901aef51b3758fa3784d0ab7b7ea6e353a884816a387a5c3cb080d4e27fd35880fd92efa95d7813c12d8dc0ad75e555a706d13dd31dfdf9e4e9cca040cd4334e8dda31542749d0e2a7fe04ac1495be182abdc1ad761d4df7b4d6d4a541698ed7e4912293a553779649857ad23780f9bee98d40ea247d05edbee20f516758abf304ddf27f80d2816969e95d66ecf26372f4051ad5fc5712db19fc866b321d1e7de33931663736b081a81a410fc4271a22351265689708dcc92858ce7cbe6cca3405a80ffdcc9b0e17fa7ed3ff53386e162f823d5c3016cbe0c67880e28a82b5c3fe999a07bcc3af4a7f909c7b7f354994ad2caad55e7e9170e99809b4677ada710da6128166a87c349de5e422e132480813a89a94b76965e1efe96f094acfbc3e7784a40107bb0000dd15092b2b699d886308ec8063e7851db097691a44e71f3717d06a752c474ad04425c352106d36133ee27850bf164c6d25954da9358fb67fe7a370c6c57e059496cd592e6dcc0e8310267a228395043bcca3cb1ca470f615fc1e822d63fc36360e01ce92f41fbfc688b996aeab28d3fa4ee5e8535e6f1b5092a46941ff4258b3146488d84bb3724f1bdd84dce6818f7fb30b2ebb2aec3b0349a03598d9b630411547fe842ea03159235cead1';
-exports.GetSingleBVN = '59f77a1c4b1eb7cfaded2103869e064186fef68e029d32190a41d8d48209defec7d893a510f36b059d17633ca8896a43336925f6baf35faa80752cd8b03bbd7ace2e7e82fb78507fcceb46b34e88585a4bab167234526a683960297faaa4cd2fe3d6fea04a24bfdedcdc15f1cc017f6bff3318ba12f617c3c9236fa7482c98cf4ca0c8320989b27412c6fc119a8151b07f3171ee50b0cc0594e02a7eef4d18a5a325e36dca7e9f8fc0fd64d193fc389d6111dec169064f776c0d3a9b2a7594132610c9572ee547b68df0037649417e19d4307d76fe252bda157a4119551c5b1e08fc0d6506ac455e557f9d31593bb5d63cdfc5c1ca59071d0a136f32fc3801cb82f53f85a5a921ffc974722f82dbc70d57169c9be4b15f37841a98e7b4ab13cc620a72fa821991ca5d281db4869acdcf869dd9522127477e2a5e94cc41504796779a689815ee7dd105d346fdc13646656d1bffca43eecac0bb7b4dafef467c8f49379ef33955da79a0d4a4dd030719f1f5bc5d34223c1a50424b6878b8421cdcf91a4d1a52fc5be66c419f4ea7201c8f46c3677a4643f5547c77b073c85e8b5e2739991c579879d990605f648c22c31a4de4e8cd1a7f910582c18080328311a2fc203dd02996eafaf97ef437054e62629d2f89d4889a83388a2dad71f4d83db6e32428e1df4ee996291feef313c80031856e377a2135edc7d71471ac4ffbb87500feaf1c4babeae553f8922158530070a9f783a570331ca72410286a5eab346bfbdd26bb7528b019c2c0789ae8fe282b89c627521b171ebe91176db37b6a902611f344e8435d6de90fb675556d15a88a810253f0c7858f983d7ea54594a09b02027f93df17815d25bf05eb7a4049373edb1d0e14f5582f449d55f7332e07b2914e8164a4baa674e150caba557bf33f1e3c3d7662ffac634e6c8541e3aa0737f86a8d3cecb1754b534e150f883c4ee2ea58ac1ad8269c074c70ab5f87795b231669b25980625532145c1dd4b4e354e00a60c55d8d87e16e067ec521b9d1a44d9f12a1734143ae82af537d0f8e6e66d388';
-exports.GetMultipleBVN = '59f77a1c4b1eb7cfaded2103869e064186fef68e029d32190a41d8d48209defe48e38f0a76b2b07f70cfe23b0f8821bb4a699d8ea6328fcc6d5feb696bf275e9cdc81eb7e97eb33aae65bd0e066fbefcab85d8146383052be90ee41b997513d7bb94041d42844514d58e4a5b68eaab0dfe0f0dbe897d84c211547e00b1925549bb5a31b03d65d0c34e1b9a0bfe2661c60c770aca52c7985a1d1609f99f3d7e9988357bfcc07aab796f44ae231e548f3b344f78011c40f817c61de501b29af0c0ddcf7603f268c61d69b5a076999794679fec621249bd18d19287349d5a03b59b98b168af167bca026df8644cb3f833424ab6d9616bac8cc4d0ea033617e7149493fed2445399dae3641fc40a1018dac011f3d76e1862e5dafc23b9c6706997992163163e5e812fd4fc4700d18f7486812f34a6c801f7c90a2171435d43dde120432cac18d8e0edc830008b3e55c8bd3223311a59675a893634df24a728a74f6643565bd4143074dc4e8af8fc14b9a9ddbfb8eced2ae3ac00b6362d32043482397b0a0b101812973b56777370bc42e9174c6e9bb709d745f32cf8cf8ab516d43c3ffaa6a571224931aa4a94e06bb8675a80161ac4a48e49cffca4115ab3caa454c6daf344254925f6b5e741693a74d156fc9d3c7695a4fcab5d6a2ecf871d5fb14b2b5df1d136bce9e849776036d69edd3aad43a45871646a466611bb7cd7645b033b0c8bac965462595c0e7c602a8edc477abb332b7aba12afe8a12596f43e16064ad97b76bde440ad2c3a24890706676a0d45d53499d4602854acaec577f1fcbd1dcdba61bc949a0502c10bf313bd6b8829d509012a0773dfd0fec3f709e48324b741477924f7d05cf1a4b9befdd5ceb3bc14aa2d31f907e8cb51fe458890d13ed34767849c8a6191efb27ac54f13011def1b30f47f4961a8e6b47a2eb7dff9581a101d6d228ab840a3a071c12a0ee6d3d526e5aaaad24a65d9a7e8ecd5472427358adb5b48010ad626d2efc69affe374fdae56aa09ab8555bc4af583b515314fe42802f37d0634ac1ce729f3c830ded80d35737211f13252cf9c438e43b4db3caa4c0da34bba347f8ad68e46f03d183355132e671ddd4bb3718ac35ad9aed879939a91fbbe9939f25a3dfc055d6c0e50bfa61a8ee6969705fe12f48e8c484deeac8cb84ce76dcb9c827abbf64c629bd7eecfdc20149290ec23fc0efc9bf62c664bbbe4a7ff205cfbf1ffbdc8682428412c1bb295c57a7c04fe25c9ea84b0867f276c0ef067bdc6be1592fd64f0198d68f3c601275550637b71cefa24f2eb256adaa12b81aba066fd050734477d77864dee8d5c6af6d3183ef46b7e64822ff04e3c67dd12fa5cdeb19b82aa48da0622fc18833db17eabfd3db78e09d68af0ba61ba5dff6b493371b91264c8b6b2dd5726a2d28dfece09797b100442885c281400e449bce489d4e74bab7eaa0b2cc199af51053c3212d5c6b8dc2e2da514b2bfaaca69424146bc5e092a517d14bdc01a7e4701da8a94a943914b36bd21595c0fe8ebda00d2ab2dfcae5c81da1d6506b8cc92765d44a2853e1f1a365d8d26abfd389756cbde6d5d504e5269dc70bfaf087defb83d326ad47802450d23f3f24c577661f386d1c1ad1f20ea15a973033e1d3ea935b728900fd98715e2b421a073f25422dc6132e8514f1aaf4c9e6fdda0edaa68fa7f6d787d53a55dd05fce22499ce488251d97b4b63ef3304d9a6a6b6c0d97115a70a8288ef6921dd75a9d5330cc1231345f5ae94c2fba7156287d2b5029335494310674fb9c4e56a4feb74675e7b6e1255ee859aa8e73cd55247c8090870f4e6eb6c2242c2054a7a87c640495ad78d2ee7802e7d66315bc30948323b17d1b86f33d2e27ecad99b08536fb3c93779333caeca2c0c1ddc92651889029e40cfc1a157b109f2af9243349e58e9756985841c1e6fd567026531fcc2bf973b5153658838f1054789b95f3a4661f838e799246ac49c0c29d3204baadac860ff9c513aef96f94775d0fe4dbea49731ef2570b00a0caf5b9bf56e4c2046b4cf42032d82781c51b1a0262ef99d7c22ece69abca2aac9d08c025c5867a5e87b465edbe00d50a3b599335a97f4353f50828a11d963160c30cfa643b638c9021fa1e9fbc5ce50ae78a58beb2662515212865fcf23e6ae2e53507046a2cd3e6901ca50fb2e395e7023ed02ba945a2e04f70e5a3d9e0f0e54fb6c900b7a87c8fc5b934a50ca83b2c36f098bd4e1d50a6092f15c86b764653c36e3efea24b157d9bae244fca5c73147609aa2dbdd3fc1157199e131197381385a4fbad8dfadd5f1e56db0686a9aa11980befe3fe1f2e7b5b932327f091052805ff4cf70ade04d5144850e400bc95c30acac50a135d611073a377ad2f157d75229fc426fffda71f55b812bb5821e6541d111735617398bb1beac70b8a02b08698edff9a617b7a39c6c48884130fdf84dd67c45e9c6a16fadf7092d4d39691b5b4e15c2408db13dc563a6891b8744071864402c3940a313b2b707e452a0eda6498f95b49c78b4b7d9ec89502e1fcc59f460dc048d6b09c36e5f7f39d6e5eb215a1f6f0bd58ac4e7c71099df5fad6fe9ff46203d3373b7d4c28f14a83558c424630c13cbf62dc608918abbea32f0dcdc67654450f6da829708e3b2a661de57572673a3e4c8173885125c5f0e4e20d421cd90324aa5440e9848fc7576ffec85ef3d1b31523bbfd0dc8a6adf0d6ff005a4ed0fbf48e3dc6bcbeacc4e10a62f95a63cb308e78315e11ee85acaba6d4d2588ec1225e17ea1f3858702167d09c2cb77aef48a51ebfe63fc22ab32c0cd65ed85fa844e622e59af6c55f019835c5dc02ee013a3ea0e270c568dd8884ec3dd959bbcbbe6f7473464363a0373c035d45dd28b30f1c85076b815c0f014945e480378b703c0b0d1d5e9395c588f3814172d0ae6da6b5b1ad6c0d5fb119aa2f3114c656f6a79d047ac6a6aa1b38f0d905692df02ca50a19b14e3f0901b399c469c9b06fac5250bab3515e94eea466ed6350c82c9f4c04b61211be81e4fa95aac9b149f107b29ab12343f17673e00c0ef2';
-exports.IsBVNWatchlisted = '59f77a1c4b1eb7cfaded2103869e064186fef68e029d32190a41d8d48209defec7d893a510f36b059d17633ca8896a43336925f6baf35faa80752cd8b03bbd7a775927af63e0fa8fbc4fbce8c256bb84808ba029dc3adb7f1128a29d4a2e05277aed14bf70c6be7d1c6db438e2cc85c33c363fb2c3cf94d9a8bbc1602161da53';
-exports.VerifySingleBVNError = 'e1f138abb9b03b255df957c369995941f317413bd5bb77e28e6eb4d0deb26ceb5f20fdacb063ee24ee30e17954854cac9761cd7058a1dac909cbfd2e6251ae4f1f10c3c4594f7dfea4ba70735d3fb6c79edf3e9a3784170c53fc0f1822567378f0961ec89aa58495d9b8a1ed908797c67195308da17e876b4afe6b591c232def61261422247481e2720b118ba4f38f01afa64b99dd941efde205a934b04e14e9dfb12fb5ad7412e4872441d417d719bd51ae40c17a96a5f2ccb64387b5cff1d46f4446d9da4c62043896d422478abd8eeb594b3cef3f894f2aff57bd1bbbf50b65fa5363d310c1a26c2fd8b7021bf1eeacbfdbb57f08edef3fe214a02856e6b8789e254df6f758c34b153141ae7411051f18b4617fb774f3561967c9e4038d756acdcae60207601a88c5f79d2da4b8bfa5a6d439dd5d126cd032ce0d151b3d34f13a14b99d0b90f57990f6b05d588896d60ccdfb3c78f46d1c27fa2674918372b5578fc894a435c1a58ca8b9df49f4b557a99ce7644fe8fbabc0e08371a00a884feda746a35bda7b26f91ed362acc3860a6d92098e141f86e405f26cef0926ef';
+exports.VerifySingleBVN = {
+    message: 'OK',
+    data: {
+      ResponseCode: '00',
+      BVN: '12345678901',
+      FirstName: 'Uchenna',
+      MiddleName: 'Chijioke',
+      LastName: 'Nwanyanwu',
+      DateOfBirth: '22-Oct-1970',
+      PhoneNumber: '07033333333',
+      RegistrationDate: '16-Nov-2014',
+      EnrollmentBank: '900',
+      EnrollmentBranch: 'Victoria Island',
+      WatchListed: 'NO'
+    }
+  };
+
+exports.VerifyMultipleBVN =     {
+    message: 'OK',
+    data: {
+      ResponseCode: '00',
+      ValidationResponses: [ 
+        {
+            "ResponseCode": "00",
+            "BVN": "12345678901",
+            "FirstName": "Uchenna",
+            "MiddleName": "Innocent",
+            "LastName": "Nwanyanwu",
+            "DateOfBirth": "29-Oct-1995",
+            "PhoneNumber": "07033333333",
+            "RegistrationDate": "16-Dec-2014",
+            "EnrollmentBank": "900",
+            "EnrollmentBranch": "Victoria Island",
+            "WatchListed": "NO"
+          },
+          {
+            "ResponseCode": "00",
+            "BVN": "12345678902",
+            "FirstName": "Wale",
+            "MiddleName": "Joshua",
+            "LastName": "Odugbemi",
+            "DateOfBirth": "29-Oct-1996",
+            "PhoneNumber": "07033333334",
+            "RegistrationDate": "16-Oct-2014",
+            "EnrollmentBank": "900",
+            "EnrollmentBranch": "No. 2 NIBSS Avenue, VI",
+            "WatchListed": "YES"
+          },
+          {
+            "ResponseCode": "00",
+            "BVN": "12345678903",
+            "FirstName": "Seun",
+            "MiddleName": "Ogunjimi",
+            "LastName": "Isaiah",
+            "DateOfBirth": "29-Oct-1997",
+            "PhoneNumber": "07033333336",
+            "RegistrationDate": "16-Sept-2014",
+            "EnrollmentBank": "900",
+            "EnrollmentBranch": "Ikorodu",
+            "WatchListed": "NO"
+          }
+       ]
+    }
+  };
+
+exports.GetSingleBVN = {
+    message: 'OK',
+    data: {
+      ResponseCode: '00',
+      BVN: '12345678901',
+      FirstName: 'Uchenna',
+      MiddleName: 'Chijioke',
+      LastName: 'Nwanyanwu',
+      DateOfBirth: '22-Oct-1970',
+      PhoneNumber1: '08122222222',
+      RegistrationDate: '16-Nov-2014',
+      EnrollmentBank: '900',
+      EnrollmentBranch: 'Victoria Island',
+      Email: 'uche@nibss-plc.com.ng',
+      Gender: 'Male',
+      PhoneNumber2: '08111111111',
+      LevelOfAccount: 'Level 1 -Low Level Accounts',
+      LgaOfOrigin: 'Ohaozara',
+      LgaOfResidence: 'Lagos Island',
+      MaritalStatus: 'Single',
+      NIN: '123456',
+      NameOnCard: 'Uchenna Nwanyanwu',
+      Nationality: 'Nigeria',
+      ResidentialAddress: 'No. 5 Lekki Road',
+      StateOfOrigin: 'Ebonyi',
+      StateOfResidence: 'Lagos',
+      Title: 'Mr',
+      WatchListed: 'YES',
+      Base64Image: '12345678901234567890123456789012'
+    }
+  };
+
+exports.GetMultipleBVN = {   
+        message: 'OK',
+        data: {
+          ResponseCode: '00',
+          ValidationResponses: [ 
+            {
+                "ResponseCode": "00",
+                "ValidationResponses": [
+                  {
+                    "ResponseCode": "00",
+                    "BVN": "12345678901",
+                    "FirstName": "BUKKY",
+                    "MiddleName": "__",
+                    "LastName": "LALLANA",
+                    "DateOfBirth": "29-JUL-1984",
+                    "PhoneNumber1": "08122222222",
+                    "RegistrationDate": "16-NOV-2014",
+                    "EnrollmentBank": "900",
+                    "EnrollmentBranch": "IKOYI",
+                    "Email": "uche@nibss-plc.com.ng",
+                    "Gender": "Male",
+                    "PhoneNumber2": "08111111111",
+                    "LevelOfAccount": "Level 1 -Low Level Accounts",
+                    "LgaOfOrigin": "Ohaozara",
+                    "LgaOfResidence": "Lagos Island",
+                    "MaritalStatus": "Single",
+                    "NIN": "123456",
+                    "NameOnCard": "Uchenna Nwanyanwu",
+                    "Nationality": "Nigeria",
+                    "ResidentialAddress": "No. 5 Lekki Road",
+                    "StateOfOrigin": "Ebonyi",
+                    "StateOfResidence": "Lagos",
+                    "Title": "Mr",
+                    "WatchListed": "YES",
+                    "Base64Image": "12345678901234567890123456789012"
+                  },
+                  {
+                    "ResponseCode": "00",
+                    "BVN": "12345678902",
+                    "FirstName": "GODSWILL",
+                    "MiddleName": "CHARLES",
+                    "LastName": "OGUNKAMISI",
+                    "DateOfBirth": "06-AUG-1948",
+                    "PhoneNumber1": "08122222222",
+                    "RegistrationDate": "16-NOV-2014",
+                    "EnrollmentBank": "900",
+                    "EnrollmentBranch": "UMUAHIA 1 BO",
+                    "Email": "uche@nibss-plc.com.ng",
+                    "Gender": "Male",
+                    "PhoneNumber2": "08111111111",
+                    "LevelOfAccount": "Level 1 -Low Level Accounts",
+                    "LgaOfOrigin": "Ohaozara",
+                    "LgaOfResidence": "Lagos Island",
+                    "MaritalStatus": "Single",
+                    "NIN": "123456",
+                    "NameOnCard": "Uchenna Nwanyanwu",
+                    "Nationality": "Nigeria",
+                    "ResidentialAddress": "No. 5 Lekki Road",
+                    "StateOfOrigin": "Ebonyi",
+                    "StateOfResidence": "Lagos",
+                    "Title": "Mr",
+                    "WatchListed": "YES",
+                    "Base64Image": "12345678901234567890123456789012"
+                  },
+                  {
+                    "ResponseCode": "00",
+                    "BVN": "12345678903",
+                    "FirstName": "FABIA",
+                    "MiddleName": "ODES",
+                    "LastName": "ODEDEJI",
+                    "DateOfBirth": "14-MAR-1984",
+                    "PhoneNumber1": "08122222222",
+                    "RegistrationDate": "16-NOV-2014",
+                    "EnrollmentBank": "900",
+                    "EnrollmentBranch": "UMUAHIA 1 BO",
+                    "Email": "uche@nibss-plc.com.ng",
+                    "Gender": "Male",
+                    "PhoneNumber2": "08111111111",
+                    "LevelOfAccount": "Level 1 -Low Level Accounts",
+                    "LgaOfOrigin": "Ohaozara",
+                    "LgaOfResidence": "Lagos Island",
+                    "MaritalStatus": "Single",
+                    "NIN": "123456",
+                    "NameOnCard": "Uchenna Nwanyanwu",
+                    "Nationality": "Nigeria",
+                    "ResidentialAddress": "No. 5 Lekki Road",
+                    "StateOfOrigin": "Ebonyi",
+                    "StateOfResidence": "Lagos",
+                    "Title": "Mr",
+                    "WatchListed": "YES",
+                    "Base64Image": "12345678901234567890123456789012"
+                  }
+                ]
+              }
+           ]
+        }
+};
+
+exports.IsBVNWatchlisted = {
+    message: 'OK',
+    data: {
+      ResponseCode: '00',
+      BVN: '12345678901',
+      BankCode: '900',
+      Category: '1',
+      WatchListed: 'YES'
+    }
+  };
+
+exports.VerifySingleBVNError = {
+    ResponseCode: '05',
+    Message: 'Unmatched Request, Refer to documentation.',
+    EXPECT: {
+      header: {
+        Accept: [Array],
+        'Content-Type': [Array],
+        OrganisationCode: 'MTExMTE=',
+        Authorization: 'MTExMTE6Xm8nZTZFWEs1VCB+XmoyPQ==',
+        SIGNATURE: '7fb7f59cf948185bc8353144899d6610fc45530b3f951da976f2f69492a1c32b',
+        SIGNATURE_METH: 'SHA256'
+      },
+      body: { BVN: '12345678901' }
+    }
+  };

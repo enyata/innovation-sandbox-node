@@ -1,15 +1,16 @@
 const chai = require('chai');
 const nock = require('nock');
+const hash = require('../lib/nibss/common/Hash');
 
 const BVnr = require('../lib/nibss/Bvnr');
 
-const scope = nock('https://innovation-sandbox-backend.herokuapp.com');
+const scope = nock('https://sandboxapi.fsi.ng');
 const { BVNMock } = require('./fixtures');
 
 const { expect } = chai;
 
-const organisation_code = '11111';
-const sandbox_key = '0ae0db703c04119b3db7a03d7f854c13';
+const organisation_code = '00000';
+const sandbox_key = 'abcdefghijklmnop';
 
 describe('Bvnr', () => {
     let password,
@@ -26,14 +27,15 @@ describe('Bvnr', () => {
         password = reset.password;
         ivkey = reset.ivkey;
         aes_key = reset.aes_key;
-
+        
         expect(reset).to.have.property('ivkey');
         expect(reset).to.have.property('password');
         expect(reset).to.have.property('aes_key');
     });
 
     it('Should verify single BVN ', async() => {
-        scope.post('/nibss/bvnr/VerifySingleBVN').reply(200, BVNMock.VerifySingleBVN);
+        const encrypted = hash.encrypt(JSON.stringify(BVNMock.VerifySingleBVN), aes_key, ivkey);
+        scope.post('/nibss/bvnr/VerifySingleBVN').reply(200, encrypted);
         const validate = await BVnr.VerifySingleBVN({
             bvn: '12345678901',
             sandbox_key,
@@ -50,7 +52,8 @@ describe('Bvnr', () => {
     });
 
     it('Should verify multiple BVN ', async() => {
-        scope.post('/nibss/bvnr/VerifyMultipleBVN').reply(200, BVNMock.VerifyMultipleBVN);
+        const encrypted = hash.encrypt(JSON.stringify(BVNMock.VerifyMultipleBVN), aes_key, ivkey);
+        scope.post('/nibss/bvnr/VerifyMultipleBVN').reply(200, encrypted);
         const validate = await BVnr.VerifyMultipleBVN({
             bvn: '12345678901, 12345678902, 12345678903',
             sandbox_key,
@@ -68,7 +71,8 @@ describe('Bvnr', () => {
     });
 
     it('Should get single BVN ', async() => {
-        scope.post('/nibss/bvnr/GetSingleBVN').reply(200, BVNMock.GetSingleBVN);
+        const encrypted = hash.encrypt(JSON.stringify(BVNMock.GetSingleBVN), aes_key, ivkey);
+        scope.post('/nibss/bvnr/GetSingleBVN').reply(200, encrypted);
         const validate = await BVnr.GetSingleBVN({
             bvn: '12345678901',
             sandbox_key,
@@ -85,7 +89,8 @@ describe('Bvnr', () => {
     });
 
     it('Should get multiple BVN ', async() => {
-        scope.post('/nibss/bvnr/GetMultipleBVN').reply(200, BVNMock.GetMultipleBVN);
+        const encrypted = hash.encrypt(JSON.stringify(BVNMock.GetMultipleBVN), aes_key, ivkey);
+        scope.post('/nibss/bvnr/GetMultipleBVN').reply(200, encrypted);
         const validate = await BVnr.GetMultipleBVN({
             bvn: '12345678901, 12345678902, 12345678903',
             sandbox_key,
@@ -103,7 +108,8 @@ describe('Bvnr', () => {
     });
 
     it('Should check if BVN is watchlisted ', async() => {
-        scope.post('/nibss/bvnr/IsBVNWatchlisted').reply(200, BVNMock.IsBVNWatchlisted);
+        const encrypted = hash.encrypt(JSON.stringify(BVNMock.IsBVNWatchlisted), aes_key, ivkey);
+        scope.post('/nibss/bvnr/IsBVNWatchlisted').reply(200, encrypted);
         const validate = await BVnr.IsBVNWatchlisted({
             bvn: '12345678901',
             sandbox_key,
@@ -120,7 +126,8 @@ describe('Bvnr', () => {
     });
 
     it('Should return error if BVN is incorrect', async() => {
-        scope.post('/nibss/bvnr/VerifySingleBVN').reply(200, BVNMock.VerifySingleBVNError);
+        const encrypted = hash.encrypt(JSON.stringify(BVNMock.VerifySingleBVNError), aes_key, ivkey);
+        scope.post('/nibss/bvnr/VerifySingleBVN').reply(200, encrypted);
         const validate = await BVnr.VerifySingleBVN({
             bvn: '12345678901,123456789011',
             sandbox_key,

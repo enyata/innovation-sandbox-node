@@ -1,17 +1,18 @@
 const chai = require('chai');
 const nock = require('nock');
+const hash = require('../lib/nibss/common/Hash');
 
 const BVnr = require('../lib/nibss/Bvnr');
 const FingerPrint = require('../lib/nibss/FingerPrint');
 
-const scope = nock('https://innovation-sandbox-backend.herokuapp.com');
+const scope = nock('https://sandboxapi.fsi.ng');
 const { BVNMock, FingerPrintMock } = require('./fixtures');
 
 
 const { expect } = chai;
 
-const organisation_code = '11111';
-const sandbox_key = '0ae0db703c04119b3db7a03d7f854c13';
+const organisation_code = '00000';
+const sandbox_key = 'abcdefghijklmnop';
 
 describe('FingerPrint', (done) => {
     let password,
@@ -30,7 +31,8 @@ describe('FingerPrint', (done) => {
     });
 
     it('Should verify finger print', async() => {
-        scope.post('/nibss/fp/VerifyFingerPrint').reply(200, FingerPrintMock.VerifyFingerPrint);
+        const encrypted = hash.encrypt(JSON.stringify(FingerPrintMock.VerifyFingerPrint), aes_key, ivkey);
+        scope.post('/nibss/fp/VerifyFingerPrint').reply(200, encrypted );
         const validate = await FingerPrint.VerifyFingerPrint({
             fingerPrintData: {
                 BVN: '12345678901',
