@@ -1,16 +1,17 @@
 const chai = require('chai');
 const nock = require('nock');
+const hash = require('../lib/nibss/common/Hash');
 
 const BVnr = require('../lib/nibss/Bvnr');
 const PlaceHolder = require('../lib/nibss/PlaceHolder');
 const { BVNMock, PlaceHolderMock } = require('./fixtures');
 
-const scope = nock('https://innovation-sandbox-backend.herokuapp.com');
+const scope = nock('https://sandboxapi.fsi.ng');
 
 const { expect } = chai;
 
-const organisation_code = '11111';
-const sandbox_key = '0ae0db703c04119b3db7a03d7f854c13';
+const organisation_code = '00000';
+const sandbox_key = 'abcdefghijklmnop';
 
 describe('PlaceHolder', (done) => {
     let password,
@@ -30,7 +31,8 @@ describe('PlaceHolder', (done) => {
     });
 
     it('Should validate record', async() => {
-        scope.post('/nibss/BVNPlaceHolder/ValidateRecord').reply(200, PlaceHolderMock.ValidateRecord);
+        const encrypted = hash.encrypt(JSON.stringify(PlaceHolderMock.ValidateRecord), aes_key, ivkey);
+        scope.post('/nibss/BVNPlaceHolder/ValidateRecord').reply(200, encrypted);
         const validate = await PlaceHolder.ValidateRecord({
             Record: {
                 BVN: '12345678901',
@@ -54,7 +56,8 @@ describe('PlaceHolder', (done) => {
     });
 
     it('Should validate records', async() => {
-        scope.post('/nibss/BVNPlaceHolder/ValidateRecords').reply(200, PlaceHolderMock.ValidateRecords);
+        const encrypted = hash.encrypt(JSON.stringify(PlaceHolderMock.ValidateRecords), aes_key, ivkey);
+        scope.post('/nibss/BVNPlaceHolder/ValidateRecords').reply(200, encrypted);
         const validate = await PlaceHolder.ValidateRecords({
             Records: [
                 {
