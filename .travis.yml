@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - '8'
+  - '9'
+  - '10'
+  - '12'
+
+script:
+  - npm run lint
+  - npm test
+
+# before_deploy: "echo 'ready?'"
+
+# TODO: configure email and api_key,
+# follow: https://docs.travis-ci.com/user/deployment/npm/#npm-auth-token
+# deploy:
+#   provider: npm
+#   email: "YOUR_EMAIL_ADDRESS"
+#   api_key: "YOUR_AUTH_TOKEN"
+#   on:
+#     tags: true
+#     branch: master
+
+# after_deploy: "echo 'deploy complete?'"
