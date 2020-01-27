@@ -2,7 +2,7 @@
 
 ## Install
 ```bash
-$npm install innovation-sandbox
+$ npm install innovation-sandbox
 ```
 
 ## Require NIBSS Library
@@ -258,4 +258,10 @@ nibss.PlaceHolder.ValidateRecords({
 }).then(res => {
     //do something
 })
+```
+
+## RUNNING TEST
+After installing dependeinces, run the command 
+```bash
+$ npm test
 ```
