@@ -4,7 +4,7 @@
   "description": "Node.js package for Innovation Sandbox",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 30000",
+    "test": "npm run lint && mocha --timeout 30000",
     "lint": "eslint --fix lib/ index.js --ext .js "
   },
   "repository": {
@@ -21,7 +21,6 @@
     "request": "~2.88.0",
     "request-promise-native": "~1.0.8"
   },
-  
   "devDependencies": {
     "chai": "~4.2.0",
     "chai-http": "~4.3.0",
