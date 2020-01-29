@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --timeout 30000",
-    "lint": "eslint --fix lib/**/* index.js --ext .js "
+    "lint": "eslint --fix lib/ index.js --ext .js "
   },
   "repository": {
     "type": "git",
