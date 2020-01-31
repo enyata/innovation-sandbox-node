@@ -1,0 +1,36 @@
+{
+  "name": "innovation-sandbox",
+  "version": "1.0.0",
+  "description": "Node.js package for Innovation Sandbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint && mocha --timeout 30000",
+    "lint": "eslint --fix lib/ index.js --ext .js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enyata/innovation-sandbox-node.git"
+  },
+  "author": "Enyata",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enyata/innovation-sandbox-node/issues"
+  },
+  "homepage": "https://github.com/enyata/innovation-sandbox-node#readme",
+  "dependencies": {
+    "request": "~2.88.0",
+    "request-promise-native": "~1.0.8"
+  },
+  "devDependencies": {
+    "chai": "~4.2.0",
+    "chai-http": "~4.3.0",
+    "crypto": "~1.0.1",
+    "eslint": "~6.8.0",
+    "utf8": "~3.0.0",
+    "eslint-config-airbnb-base": "~14.0.0",
+    "eslint-plugin-import": "~2.19.1",
+    "faker": "~4.1.0",
+    "nock": "~11.7.2",
+    "mocha": "~7.0.0"
+  }
+}
