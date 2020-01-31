@@ -9,16 +9,16 @@ script:
   - npm run lint
   - npm test
 
-# before_deploy: "echo 'ready?'"
+before_deploy: echo 'ready?'
 
-# TODO: configure email and api_key,
-# follow: https://docs.travis-ci.com/user/deployment/npm/#npm-auth-token
-# deploy:
-#   provider: npm
-#   email: "YOUR_EMAIL_ADDRESS"
-#   api_key: "YOUR_AUTH_TOKEN"
-#   on:
-#     tags: true
-#     branch: master
+deploy:
+  provider: npm
+  email:
+    secure: l0tUewtI0QiUGQHb69DeZxkahr+q1SNvibKVlfFv7toZE7KgelUxQ1uYxM8HigfRRAcfE891XydKjEa9XeucXEsDtxZvkpamT8EHCwJ558565bcxJg/oMoidSX5d5snNZh5dnEklQWrUNfErvNiPby6ywKg7WnKGo5QUUTT/QGOEJz56OGfJ0IS3e3mXmj/QRrrTH1GwJ8Bfsu6GLnru9UtrdaGwagoRqdwnOPcDbK9K1FnTGervaQ98Txo2bqEz8cHvrE1uZ4a7KlYHguQWJ+zIX3tlEdM8x4AgeKPAtb5dSsyVxR6SndZ/2ZUa9f8rmGvV8nHyyKgwImaU5Z7Rdb7yV5EaEsknmq0CZyZYIKOt0Fc/cPaLm+mfjZrW0EwmR19v//r3dVBLzrHcvMUHlWgVgRQ4elkfx+ijvccOZve9vk1Akwf5HWJK7YdEsIysAYGF/39CpnNaz1jhBdERfOGmxcKyIfXSCBp/wqJZ0SEMbouPt4yexAHbdAlXWJ+YPFYt3qZJ7yekPxAASqMstrcnteGIGe9h4OCQNB9i4jzaFqVMpz4igfJu/YVQEgRPDlcZWa09zDEiYqTbKU9utjqrLqDYOkDZ7qvGNf6EnT+FSZU7Ac17x6491vCRN8VSplWLqmIDP0cWfBG6pDo+Ya2EYbbZ/ix5/fkdJCu4b/Y=
+  api_key:
+    secure: fMzSW5DNzpXLdvK8oFIBNUutYUqJDySejpevUfuKPRSYkMyI+MpHQmNWN48l/op5KAeEH8Jm7BUJTFZmbdjtg/aiDSlGfXaHB6R1iOtJqZVleYXrXSUM7J2ME3w1P6aDCAmtLzgrcOWR+uVVF6alXscqWuN9yiSR05XiQBWhym7yyPNiR7Eirr/yv9T6YtUa9SNEX43ut4Cmaw5mRfz6s2LunoXK8apHCEdoNwTptLzAnvzgwuOZZMTaJRiX2d3NTsyMNGxcONKskkqQu0NhQa05keiRkeplJVIJdMuC7TqEMO5RIgAu2SsZOBlktaT+Tuge1qkLZF2VvDi5pN7KNVq/fgmHySEbqxIL0dxX+jgzT1XtqjRuAWZBtJHuuV+dTHUHlnmZ7ARTv9QNN+c3hrFT0QlG7A02bQdpIAdYdIoxSlH4e+eb6Rlx787AjYkmHiiLE/b9LPEZpGdcmSEDxrCT4o7/9hmtkgSLSmSJ/guNfdOvwg8kO7yiF70RNpjYcf3Wx7XtfQ3m92xrXRh/r+aDpQgSzLaqJLUu3s38yhctB6oinX/tumpxAU6JANs4RD3NSZV+tG4VRAIeCXi5jrxMaC414/RA3TykqKcSukdjKMwmd6bVgjojZKPdv6C5EwpXD+Yo+neYx9ugNmAvyy2PFxfqM4E9KmrUQUn1HPQ=
+  on:
+    tags: true
+    branch: master
 
-# after_deploy: "echo 'deploy complete?'"
+after_deploy: echo 'deploy complete!'
