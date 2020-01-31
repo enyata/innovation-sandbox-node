@@ -13,7 +13,7 @@ jobs:
   include:
     - stage: npm
       node_js: '8'
-      script: echo 'ready?'
+      script: echo 'deploy ready?'
       deploy:
         edge: true
         provider: npm
@@ -24,4 +24,3 @@ jobs:
         on:
           tags: true
           branch: master
-      script: echo 'deploy complete!'
