@@ -9,17 +9,19 @@ script:
   - npm run lint
   - npm test
 
-before_deploy: echo 'ready?'
-
-deploy:
-  edge: true
-  provider: npm
-  email:
-    secure: ZrW4FcLv2gw5HRV3kaVV6aocOAmwbOMQ2EzR+uynkAQM7QDbY2Sm5SzBh71anMOI1Hp/5CbcPKiuQdWoLxjWnWelU9PDhXsUJZFkepbug0whKVnAZOiWJPBwORFNxATRxrMqv70Qh3auHIOTLoP3J2h2trHT5nZEaCLTpP3LG7+PWAuydwwevb/EQbz9a3Xoes6NvRe/zZMWOuyeH2yL+nzXLTav9Qy2MxkE1FJvr8wLVJr28M3hz7OKd2BT2PzXoH7S3bX9NZ53+Zh5s1UxH2WMl3D/U/1opHB1f8ZjhY9Wb2R0hCyr7DFrLiXt743/1uUfr65O4ee40iUTl+XjVjxdWZEMSTYdekKnMkVP1cFZ4sAD8ydeQMHSXwsc8nmKvkaUueAUPyVS/g32ZHcuDyD0fKVABcWclnRzgImsP45/FrE4SjGfwWlQYhWVE1hKO0HlMDGUcCaM5oIKsD5djUi0B3nKcm8QBYS/U+mxxPPTpRsuvHLvJzXct10Z6cN966+EwyPubw4mMOsjSIB+tJrpE4wV9LMHUDpU/bxP+37Gis8KMLvwS1HzQWr8hAWly1IyW5imJheKLF02eavJVNrTmkXn90GOliKHv47J64RXUEFKH1kiodItHIE+sq388uaBqzAAyt5pYFBoP5FXZnjr6KwNnUlRpMtyA+v+c0g=
-  api_key:
-    secure: 3qSLR2M0ZuFOPPrbmWo2V1jP7/sZGuVykHJkYHanRAUMCc/kydtM+no9KBWbrgMj4E9jW7SlBm80mfnlUljOm8r9ObB4l42Q39yoRmssPRF9eyKHKdncrz6RiyVLeKPvD0ntj3CYZ9NTNisDlZZ+qJ0dtjMRNZ56dx7dVVdB1/lxY+zyAsmabVPwmx4GYdjaFRsnER5inasIbuRDVk0AkFrTCQ8IX/x/zYISaebnIC2/BiYMjStyHTaqPoyE8zBJ1Jbh/KZ9noohx5iVSFydNsQsEhANt51KkJCLU2NLG7DWGdO3R3WFbo7DzVrNKJF8bMVw/OhS3uHDM9hR0K1FZBxGmsCKsGN234v1rkOlWrNBJTJ9sLc+o3AlmY5RKrZWBw4EnYzwKq9quRYyYEfBJ0yHtpRKia3VXIb0IoxUzs+idNsrieHamyUHO6TsmjTAlPMCfJt8FTwMqyVM4s6mgKM68r62OtMqIZktRm2e9cDAoJsf462DTrqfv5xkAaGfSz6YHiwEMkdm2UDLnH0YLp8/Gc9Uy6NZnzzbm5ym+oF6yUCWBeC7pYmGdOairkn4rVEwNy1V6y7fUcq7sr/ZUZZrSnqY4MFPdnbzoqgWqjPEM763AuIErE6W1AzPuqB00JLesIjTsb1Ad1hMY9koi/WDapOQezvY0fNo/uT3oPg=
-  on:
-    tags: true
-    branch: master
-
-after_deploy: echo 'deploy complete!'
+jobs:
+  include:
+    - stage: npm
+      node_js: '8'
+      script: echo 'ready?'
+      deploy:
+        edge: true
+        provider: npm
+        email:
+          secure: ZrW4FcLv2gw5HRV3kaVV6aocOAmwbOMQ2EzR+uynkAQM7QDbY2Sm5SzBh71anMOI1Hp/5CbcPKiuQdWoLxjWnWelU9PDhXsUJZFkepbug0whKVnAZOiWJPBwORFNxATRxrMqv70Qh3auHIOTLoP3J2h2trHT5nZEaCLTpP3LG7+PWAuydwwevb/EQbz9a3Xoes6NvRe/zZMWOuyeH2yL+nzXLTav9Qy2MxkE1FJvr8wLVJr28M3hz7OKd2BT2PzXoH7S3bX9NZ53+Zh5s1UxH2WMl3D/U/1opHB1f8ZjhY9Wb2R0hCyr7DFrLiXt743/1uUfr65O4ee40iUTl+XjVjxdWZEMSTYdekKnMkVP1cFZ4sAD8ydeQMHSXwsc8nmKvkaUueAUPyVS/g32ZHcuDyD0fKVABcWclnRzgImsP45/FrE4SjGfwWlQYhWVE1hKO0HlMDGUcCaM5oIKsD5djUi0B3nKcm8QBYS/U+mxxPPTpRsuvHLvJzXct10Z6cN966+EwyPubw4mMOsjSIB+tJrpE4wV9LMHUDpU/bxP+37Gis8KMLvwS1HzQWr8hAWly1IyW5imJheKLF02eavJVNrTmkXn90GOliKHv47J64RXUEFKH1kiodItHIE+sq388uaBqzAAyt5pYFBoP5FXZnjr6KwNnUlRpMtyA+v+c0g=
+        api_key:
+          secure: 3qSLR2M0ZuFOPPrbmWo2V1jP7/sZGuVykHJkYHanRAUMCc/kydtM+no9KBWbrgMj4E9jW7SlBm80mfnlUljOm8r9ObB4l42Q39yoRmssPRF9eyKHKdncrz6RiyVLeKPvD0ntj3CYZ9NTNisDlZZ+qJ0dtjMRNZ56dx7dVVdB1/lxY+zyAsmabVPwmx4GYdjaFRsnER5inasIbuRDVk0AkFrTCQ8IX/x/zYISaebnIC2/BiYMjStyHTaqPoyE8zBJ1Jbh/KZ9noohx5iVSFydNsQsEhANt51KkJCLU2NLG7DWGdO3R3WFbo7DzVrNKJF8bMVw/OhS3uHDM9hR0K1FZBxGmsCKsGN234v1rkOlWrNBJTJ9sLc+o3AlmY5RKrZWBw4EnYzwKq9quRYyYEfBJ0yHtpRKia3VXIb0IoxUzs+idNsrieHamyUHO6TsmjTAlPMCfJt8FTwMqyVM4s6mgKM68r62OtMqIZktRm2e9cDAoJsf462DTrqfv5xkAaGfSz6YHiwEMkdm2UDLnH0YLp8/Gc9Uy6NZnzzbm5ym+oF6yUCWBeC7pYmGdOairkn4rVEwNy1V6y7fUcq7sr/ZUZZrSnqY4MFPdnbzoqgWqjPEM763AuIErE6W1AzPuqB00JLesIjTsb1Ad1hMY9koi/WDapOQezvY0fNo/uT3oPg=
+        on:
+          tags: true
+          branch: master
+      script: echo 'deploy complete!'
