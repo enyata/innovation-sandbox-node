@@ -1,13 +1,11 @@
 const faker = require('faker');
-const utf8 = require('utf8');
-const hash = require('../../lib/nibss/common/Hash');
 
 exports.reset = {
     Server: 'Cowboy',
-    aes_key: utf8.encode(faker.random.alphaNumeric(16)),
+    aes_key: faker.random.alphaNumeric(16),
     Responsecode: '00',
     password: faker.random.alphaNumeric(7),
-    ivkey: utf8.encode(faker.random.alphaNumeric(16)),
+    ivkey: faker.random.alphaNumeric(16),
 };
 exports.VerifySingleBVN = {
     message: 'OK',
@@ -230,3 +228,5 @@ exports.VerifySingleBVNError = {
       body: { BVN: '12345678901' }
     }
   };
+
+
