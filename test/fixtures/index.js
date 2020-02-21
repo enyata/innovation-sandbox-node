@@ -1,13 +1,13 @@
 const BVNMock = require('./Bvnr');
 const FingerPrintMock = require('./FingerPrint');
 const PlaceHolderMock = require('./PlaceHolder');
-const EnquiryMock = require('./Enquiry');
 const TransferMock = require('./Transfer');
+const AccountMock = require('./Account');
 
 module.exports = {
     BVNMock,
     FingerPrintMock,
     PlaceHolderMock,
-    EnquiryMock,
-    TransferMock
+    TransferMock,
+    AccountMock
 };

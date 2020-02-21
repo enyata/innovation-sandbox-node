@@ -1,20 +1,20 @@
 const chai = require('chai');
 const nock = require('nock');
 
-const Transfer = require('../lib/sterling/Transfer');
+const Account = require('../lib/sterling/Account');
 
 const scope = nock('https://sandboxapi.fsi.ng');
-const { TransferMock } = require('./fixtures');
+const { AccountMock } = require('./fixtures');
 
 const { expect } = chai;
 
-describe('Transfer', () => {
+describe('Account', () => {
     it('Should return successful transaction ', async() => {
         scope.post('/sterling/accountapi/api/Spay/InterbankTransferReq', {
-            ...TransferMock.data.payload
+            ...AccountMock.data.payload
         })
-            .reply(200, TransferMock.InterBank);
-        const validate = await Transfer.Interbank({...TransferMock.data});
+            .reply(200, AccountMock.InterbankTransferReq);
+        const validate = await Account.InterbankTransferReq({...AccountMock.data});
         expect(validate).to.have.property('message');
         expect(validate).to.have.property('data');
         expect(validate.message).to.equal('OK');
