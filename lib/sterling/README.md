@@ -17,8 +17,7 @@ const { sterling } = require("innovation-sandbox");
 Below is a list of required credentials.
 
 ### sandbox_key
-
-This can be found in the innovation sandbox dashboard after sign up. Register on `https://sandbox.fsi.ng/`
+This can be found in the innovation sandbox dashboard after sign up. However `0ae0db703c04119b3db7a03d7f854c13` can be used for testing purposes.
 
 ### host
 
@@ -68,12 +67,12 @@ This is the nuban of the transaction recipient account.
 
 This is the destination bank's code
 
-### sterling.Transfer.InterbankNameEnquiry(credentials)
+### sterling.Account.InterbankNameEnquiry(credentials)
 
 In addition to the credentials stated above, a 'params' key with aforementioned credentials as object of key values should be added to the object. For example,
 
 ```javascript
-sterling.Transfer.InterbankNameEnquiry({
+sterling.Account.InterbankNameEnquiry({
   sandbox_key: "Your sandbox_key",
   params: {
     Referenceid: "Your Transaction ID" || "01",
@@ -149,12 +148,12 @@ Account name of the transfer initiator
 
 GPS of the originating location of the transaction in longitude & latitude.
 
-### sterling.Account.InterbankTransferReq(credentials)
+### sterling.Transfer.InterbankTransferReq(credentials)
 
 In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-sterling.Account.InterbankTransferReq({
+sterling.Transfer.InterbankTransferReq({
   sandbox_key: "Your sandbox key",
   payload: {
     Referenceid: "Your Transaction ID" || "0101",
