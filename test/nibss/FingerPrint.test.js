@@ -1,12 +1,12 @@
 const chai = require('chai');
 const nock = require('nock');
-const hash = require('../lib/nibss/common/Hash');
+const hash = require('../../lib/nibss/common/Hash');
 
-const BVnr = require('../lib/nibss/Bvnr');
-const FingerPrint = require('../lib/nibss/FingerPrint');
+const BVnr = require('../../lib/nibss/Bvnr');
+const FingerPrint = require('../../lib/nibss/FingerPrint');
 
 const scope = nock('https://sandboxapi.fsi.ng');
-const { BVNMock, FingerPrintMock } = require('./fixtures');
+const { BVNMock, FingerPrintMock } = require('../fixtures/nibss');
 
 
 const { expect } = chai;
