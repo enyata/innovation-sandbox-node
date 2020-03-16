@@ -1,10 +1,10 @@
 const chai = require('chai');
 const nock = require('nock');
-const hash = require('../lib/nibss/common/Hash');
+const hash = require('../../lib/nibss/common/Hash');
 
-const BVnr = require('../lib/nibss/Bvnr');
-const PlaceHolder = require('../lib/nibss/PlaceHolder');
-const { BVNMock, PlaceHolderMock } = require('./fixtures');
+const BVnr = require('../../lib/nibss/Bvnr');
+const PlaceHolder = require('../../lib/nibss/PlaceHolder');
+const { BVNMock, PlaceHolderMock } = require('../fixtures/nibss');
 
 const scope = nock('https://sandboxapi.fsi.ng');
 

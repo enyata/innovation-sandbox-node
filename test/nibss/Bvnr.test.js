@@ -1,11 +1,11 @@
 const chai = require('chai');
 const nock = require('nock');
-const hash = require('../lib/nibss/common/Hash');
+const hash = require('../../lib/nibss/common/Hash');
 
-const BVnr = require('../lib/nibss/Bvnr');
+const BVnr = require('../../lib/nibss/Bvnr');
 
 const scope = nock('https://sandboxapi.fsi.ng');
-const { BVNMock } = require('./fixtures');
+const { BVNMock } = require('../fixtures/nibss');
 
 const { expect } = chai;
 

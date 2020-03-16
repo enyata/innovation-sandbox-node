@@ -1,20 +1,20 @@
 const chai = require('chai');
 const nock = require('nock');
-const faker = require('faker');
 
-const Transfer = require('../lib/sterling/Transfer');
+const Transfer = require('../../lib/sterling/Transfer');
 
 const scope = nock('https://sandboxapi.fsi.ng');
-const { TransferMock }  = require('./fixtures');
+const TransferMock   = require('../fixtures/sterling/Transfer');
+const { params } = TransferMock.data
 
 const { expect } = chai;
 
 describe('Transfer', () => {
     it('Should return user data ', async() => {
        scope.get('/sterling/TransferAPIs/api/Spay/InterbankNameEnquiry')
-        .query({...TransferMock.data.params})
+        .query(params)
         .reply(200, TransferMock.InterbankNameEnquiry);
-        const validate = await Transfer.InterbankNameEnquiry({...TransferMock.data});
+        const validate = await Transfer.InterbankNameEnquiry(TransferMock.data);
         expect(validate).to.have.property('message');
         expect(validate).to.have.property('data');
         expect(validate.message).to.equal('OK');
