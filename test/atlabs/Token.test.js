@@ -4,7 +4,7 @@ const nock = require("nock");
 const Token = require("../../lib/atlabs/Token");
 
 const scope = nock("https://sandboxapi.fsi.ng");
-const TokenMock = require("../fixtures/atlabs/Token");
+const TokenMock = require("../mock/atlabs/Token");
 
 const { expect } = chai;
 const { data } = TokenMock;

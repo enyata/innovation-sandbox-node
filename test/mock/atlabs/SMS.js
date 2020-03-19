@@ -7,7 +7,7 @@ exports.data = {
     from: "FSI",
     message: "Hello World"
   },
-  PremiumSub: {
+  PremiumSubscription: {
     to: `+234${faker.random.number(10000000)}`,
     from: "FSI",
     message: "Hello World",
@@ -15,18 +15,18 @@ exports.data = {
     linkId: `${faker.random.number(1000)}`,
     retryDurationInHours: "1"
   },
-  CreatePremiumSub: {
+  CreatePremiumSubscription: {
     shortCode: `${faker.random.number(1000)}`,
     keyword: "innovation-sandbox",
     phoneNumber: `+234${faker.random.number(10000000)}`,
     checkoutToken: `CkTkn_+234${faker.random.alphaNumeric(1000)}`
   },
-  DeletePremiumSub: {
+  DeletePremiumSubscription: {
     shortCode: `${faker.random.number(100)}`,
     keyword: "innovation-sandbox",
     phoneNumber: `+234${faker.random.number(10000000)}`
   },
-  FetchPremiumSub: {
+  FetchPremiumSubscription: {
     shortCode: `${faker.random.number(1000)}`,
     keyword: "innovation-sandbox",
     lastReceivedId: "0"
@@ -51,7 +51,7 @@ exports.SMSService = {
   }
 };
 
-exports.PremiumSub = {
+exports.PremiumSubscription = {
   SMSMessageData: {
     Message: "Sent to 1/1",
     Recipients: [
@@ -66,17 +66,17 @@ exports.PremiumSub = {
   }
 };
 
-exports.CreatePremiumSub = {
+exports.CreatePremiumSubscription = {
   status: "Success",
   description: "Waiting for user input"
 };
 
-exports.DeletePremiumSub = {
+exports.DeletePremiumSubscription = {
   status: "Success",
   description: "Succeeded"
 };
 
-exports.FetchPremiumSub = {
+exports.FetchPremiumSubscription = {
   responses: []
 };
 
