@@ -17,7 +17,7 @@ exports.InterbankNameEnquiry = {
 };
 
 exports.data = {
-  sandbox_key: "abcdefghijklmnop",
+  sandbox_key: faker.random.alphaNumeric(),
   host: faker.internet.url(),
   params: {
     Referenceid: faker.random.number(100),

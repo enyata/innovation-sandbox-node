@@ -14,7 +14,7 @@ exports.InterbankTransferReq = {
 };
 
 exports.data = {
-  sandbox_key: "abcdefghijklmnop",
+  sandbox_key: faker.random.alphaNumeric(),
   host: faker.internet.url(),
   payload: {
     Referenceid: faker.random.number(10000),
