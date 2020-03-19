@@ -9,7 +9,7 @@ $ npm install innovation-sandbox
 ## Require NIBSS Library
 
 ```javascript
-const { nibss } = require("innovation-sandbox");
+const { nibss } = require('innovation-sandbox');
 ```
 
 ## RESET_TOKEN([Options])
@@ -40,8 +40,8 @@ The following example calls the reset module
 
 ```javascript
 nibss.Bvnr.Reset({
-  sandbox_key: "Your sandbox_key",
-  organisation_code: "organisation_code from sandbox dashboard || 11111"
+  sandbox_key: 'Your sandbox_key',
+  organisation_code: 'organisation_code from sandbox dashboard || 11111'
 }).then(response => {
   //do something with the response here
 });
@@ -51,7 +51,7 @@ Below is an example of a reset result:
 
 ```javascript
 {
-  password: "password",
+  password: 'password',
   ivkey: 'Your ivykey',
   aes_key: 'Your aes_key'
 }
@@ -71,13 +71,13 @@ In additions to the credentials stated above a 'bvn' key with the value of the b
 
 ```javascript
 nibss.Bvnr.VerifySingleBVN({
-  bvn: "BVN || 12345678901",
-  sandbox_key: "Your sandbox_key",
-  organisation_code: "organisation_code from sandbox dashboard || 11111",
-  password: "Your password",
-  ivkey: "Your ivkey",
-  aes_key: "Your aes_key",
-  host: "Your host url || null"
+  bvn: 'BVN || 12345678901',
+  sandbox_key: 'Your sandbox_key',
+  organisation_code: 'organisation_code from sandbox dashboard || 11111',
+  password: 'Your password',
+  ivkey: 'Your ivkey',
+  aes_key: 'Your aes_key',
+  host: 'Your host url || null'
 }).then(res => {
   //do something
 });
@@ -93,13 +93,13 @@ Credentials are same as VerifySingleBVN. The BVNs are separated by comma and sin
 
 ```javascript
 nibss.Bvnr.VerifyMultipleBVN({
-  bvn: "BVN1, BVN2, ...BVNn || 12345678901, 12345678902, 12345678903",
-  sandbox_key: "Your sandbox_key",
-  organisation_code: "organisation_code from sandbox dashboard || 11111",
-  password: "Your password",
-  ivkey: "Your ivkey",
-  aes_key: "Your aes_key",
-  host: "Your host url || null"
+  bvn: 'BVN1, BVN2, ...BVNn || 12345678901, 12345678902, 12345678903',
+  sandbox_key: 'Your sandbox_key',
+  organisation_code: 'organisation_code from sandbox dashboard || 11111',
+  password: 'Your password',
+  ivkey: 'Your ivkey',
+  aes_key: 'Your aes_key',
+  host: 'Your host url || null'
 }).then(res => {
   //do something
 });
@@ -117,13 +117,13 @@ Credentials are same as VerifySingleBVN.
 
 ```javascript
 nibss.Bvnr.GetSingleBVN({
-  bvn: "BVN || 12345678901",
-  sandbox_key: "Your sandbox_key",
-  organisation_code: "organisation_code from sandbox dashboard || 11111",
-  password: "Your password",
-  ivkey: "Your ivkey",
-  aes_key: "Your aes_key",
-  host: "Your host url || null"
+  bvn: 'BVN || 12345678901',
+  sandbox_key: 'Your sandbox_key',
+  organisation_code: 'organisation_code from sandbox dashboard || 11111',
+  password: 'Your password',
+  ivkey: 'Your ivkey',
+  aes_key: 'Your aes_key',
+  host: 'Your host url || null'
 }).then(res => {
   //do something
 });
@@ -139,13 +139,13 @@ Credentials are same as VerifyMultipleBVN.
 
 ```javascript
 nibss.Bvnr.GetMultipleBVN({
-  bvn: "BVN1, BVN2, ...BVNn || 12345678901, 12345678902, 12345678903",
-  sandbox_key: "Your sandbox_key",
-  organisation_code: "organisation_code from sandbox dashboard || 11111",
-  password: "Your password",
-  ivkey: "Your ivkey",
-  aes_key: "Your aes_key",
-  host: "Your host url || null"
+  bvn: 'BVN1, BVN2, ...BVNn || 12345678901, 12345678902, 12345678903',
+  sandbox_key: 'Your sandbox_key',
+  organisation_code: 'organisation_code from sandbox dashboard || 11111',
+  password: 'Your password',
+  ivkey: 'Your ivkey',
+  aes_key: 'Your aes_key',
+  host: 'Your host url || null'
 }).then(res => {
   //do something
 });
@@ -161,13 +161,13 @@ Credentials are same as VerifySingleBVN.
 
 ```javascript
 nibss.Bvnr.IsBVNWatchlisted({
-  bvn: "BVN || 12345678901",
-  sandbox_key: "Your sandbox_key",
-  organisation_code: "organisation_code from sandbox dashboard || 11111",
-  password: "Your password",
-  ivkey: "Your ivkey",
-  aes_key: "Your aes_key",
-  host: "Your host url || null"
+  bvn: 'BVN || 12345678901',
+  sandbox_key: 'Your sandbox_key',
+  organisation_code: 'organisation_code from sandbox dashboard || 11111',
+  password: 'Your password',
+  ivkey: 'Your ivkey',
+  aes_key: 'Your aes_key',
+  host: 'Your host url || null'
 }).then(res => {
   //do something
 });
@@ -200,22 +200,22 @@ Below is an example on how to verify finger print
 ```javascript
 nibss.FingerPrint.VerifyFingerPrint({
   fingerPrintData: {
-    BVN: "12345678901",
-    DeviceId: "Z000112BC12",
-    ReferenceNumber: "00099201710012205354422",
+    BVN: '12345678901',
+    DeviceId: 'Z000112BC12',
+    ReferenceNumber: '00099201710012205354422',
     FingerImage: {
-      type: "ISO_2005",
-      position: "RT",
-      nist_impression_type: "0",
-      value: "c2RzZnNkZnNzZGY="
+      type: 'ISO_2005',
+      position: 'RT',
+      nist_impression_type: '0',
+      value: 'c2RzZnNkZnNzZGY='
     }
   },
-  sandbox_key: "Your sandbox_key",
-  organisation_code: "organisation_code from sandbox dashboard || 11111",
-  password: "Your password",
-  ivkey: "Your ivkey",
-  aes_key: "Your aes_key",
-  host: "Your host url || null"
+  sandbox_key: 'Your sandbox_key',
+  organisation_code: 'organisation_code from sandbox dashboard || 11111',
+  password: 'Your password',
+  ivkey: 'Your ivkey',
+  aes_key: 'Your aes_key',
+  host: 'Your host url || null'
 }).then(res => {
   //do something
 });
@@ -232,19 +232,19 @@ Credentials are same as VerifySingleBVN. The 'bvn' key is replaced with 'Record'
 ```javascript
 nibss.PlaceHolder.ValidateRecords({
   Record: {
-    BVN: "BVN || 12345678901",
-    FirstName: "Owner First Name || Uchenna",
-    LastName: "Owner Last name || Okoro",
-    MiddleName: "Owner Middle Name || Adepoju",
-    AccountNumber: "Owner Account Number || 0987654321",
-    BankCode: "Bank Code || 011"
+    BVN: 'BVN || 12345678901',
+    FirstName: 'Owner First Name || Uchenna',
+    LastName: 'Owner Last name || Okoro',
+    MiddleName: 'Owner Middle Name || Adepoju',
+    AccountNumber: 'Owner Account Number || 0987654321',
+    BankCode: 'Bank Code || 011'
   },
-  sandbox_key: "Your sandbox_key",
-  organisation_code: "organisation_code from sandbox dashboard || 11111",
-  password: "Your password",
-  ivkey: "Your ivkey",
-  aes_key: "Your aes_key",
-  host: "Your host url || null"
+  sandbox_key: 'Your sandbox_key',
+  organisation_code: 'organisation_code from sandbox dashboard || 11111',
+  password: 'Your password',
+  ivkey: 'Your ivkey',
+  aes_key: 'Your aes_key',
+  host: 'Your host url || null'
 }).then(res => {
   //do something
 });
@@ -262,28 +262,28 @@ Credentials are same as VerifySingleBVN. The 'bvn' key is replaced with 'Records
 nibss.PlaceHolder.ValidateRecords({
   Records: [
     {
-      BVN: "BVN1 || 12345678901",
-      FirstName: "Owner1 First Name || Uchenna",
-      LastName: "Owner1 Last name || Okoro",
-      MiddleName: "Owner1 Middle Name || Adepoju",
-      AccountNumber: "Owner1 Account Number || 0987654321",
-      BankCode: "Bank Code || 011"
+      BVN: 'BVN1 || 12345678901',
+      FirstName: 'Owner1 First Name || Uchenna',
+      LastName: 'Owner1 Last name || Okoro',
+      MiddleName: 'Owner1 Middle Name || Adepoju',
+      AccountNumber: 'Owner1 Account Number || 0987654321',
+      BankCode: 'Bank Code || 011'
     },
     {
-      BVN: "BVN2 || 12345678912",
-      FirstName: "Owner2 First Name || Chidi",
-      LastName: "Owner2 Last name || Seun",
-      MiddleName: "Owner2 Middle Name || Joshua",
-      AccountNumber: "Owner2 Account Number || 0987654329",
-      BankCode: "Bank Code || 012"
+      BVN: 'BVN2 || 12345678912',
+      FirstName: 'Owner2 First Name || Chidi',
+      LastName: 'Owner2 Last name || Seun',
+      MiddleName: 'Owner2 Middle Name || Joshua',
+      AccountNumber: 'Owner2 Account Number || 0987654329',
+      BankCode: 'Bank Code || 012'
     }
   ],
-  sandbox_key: "Your sandbox_key",
-  organisation_code: "organisation_code from sandbox dashboard || 11111",
-  password: "Your password",
-  ivkey: "Your ivkey",
-  aes_key: "Your aes_key",
-  host: "Your host url || null"
+  sandbox_key: 'Your sandbox_key',
+  organisation_code: 'organisation_code from sandbox dashboard || 11111',
+  password: 'Your password',
+  ivkey: 'Your ivkey',
+  aes_key: 'Your aes_key',
+  host: 'Your host url || null'
 }).then(res => {
   //do something
 });
