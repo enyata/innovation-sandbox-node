@@ -1,26 +1,30 @@
 const chai = require("chai");
 const nock = require("nock");
-const hash = require("../../lib/nibss/common/Hash");
+const faker = require('faker')
 
+const hash = require("../../lib/nibss/common/Hash");
 const BVnr = require("../../lib/nibss/Bvnr");
 const FingerPrint = require("../../lib/nibss/FingerPrint");
 
-const scope = nock("https://sandboxapi.fsi.ng");
+const url = faker.internet.url();
+
+const scope = nock(url);
 const { BVNMock, FingerPrintMock } = require("../mock/nibss");
 
 const { expect } = chai;
 
-const organisation_code = "00000";
-const sandbox_key = "abcdefghijklmnop";
+const organisation_code = `${faker.random.number()}`;
+const sandbox_key = faker.random.alphaNumeric();
 
 describe("FingerPrint", done => {
-  let password, ivkey, aes_key;
+  let password, ivkey, aes_key, host = url;
 
   beforeEach(async () => {
     scope.post("/nibss/bvnr/Reset").reply(200, "", BVNMock.reset);
     const reset = await BVnr.Reset({
       sandbox_key,
-      organisation_code
+      organisation_code,
+      host
     });
     password = reset.password;
     ivkey = reset.ivkey;
@@ -50,7 +54,8 @@ describe("FingerPrint", done => {
       organisation_code,
       password,
       ivkey,
-      aes_key
+      aes_key,
+      host
     });
     expect(validate).to.have.property("message");
     expect(validate).to.have.property("data");

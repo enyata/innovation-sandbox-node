@@ -3,11 +3,11 @@ const nock = require("nock");
 
 const Account = require("../../lib/sterling/Account");
 
-const scope = nock("https://sandboxapi.fsi.ng");
 const AccountMock = require("../mock/sterling/Account");
 
 const { expect } = chai;
 const { data } = AccountMock;
+const scope = nock(data.host);
 
 describe("Account", () => {
   it("Should return successful transaction ", async () => {

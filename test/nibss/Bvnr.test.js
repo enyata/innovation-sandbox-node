@@ -1,29 +1,29 @@
 const chai = require("chai");
 const nock = require("nock");
 const hash = require("../../lib/nibss/common/Hash");
-const faker = require('faker');
+const faker = require("faker");
 
 const BVnr = require("../../lib/nibss/Bvnr");
-const url = faker.internet.url()
-console.log(url);
+const url = faker.internet.url();
 
-const scope = nock("https://sandboxapi.fsi.ng");
+const scope = nock(url);
 const { BVNMock } = require("../mock/nibss");
 
 const { expect } = chai;
 
-const organisation_code = "00000";
-const sandbox_key = "abcdefghijklmnop";
+const organisation_code = `${faker.random.number()}`;
+const sandbox_key = faker.random.alphaNumeric();
 
 describe("Bvnr", () => {
-  let password, ivkey, aes_key;
+  let password, ivkey, aes_key, host = url;
 
   it("Should return aes_key, password and ivkey if credentials is valid", async () => {
     scope.post("/nibss/bvnr/Reset").reply(200, "", BVNMock.reset);
 
     const reset = await BVnr.Reset({
       sandbox_key,
-      organisation_code
+      organisation_code,
+      host
     });
     password = reset.password;
     ivkey = reset.ivkey;
@@ -47,7 +47,8 @@ describe("Bvnr", () => {
       organisation_code,
       password,
       ivkey,
-      aes_key
+      aes_key,
+      host
     });
     expect(validate).to.have.property("message");
     expect(validate).to.have.property("data");
@@ -60,7 +61,8 @@ describe("Bvnr", () => {
     const encrypted = hash.encrypt(
       JSON.stringify(BVNMock.VerifyMultipleBVN),
       aes_key,
-      ivkey
+      ivkey,
+      
     );
     scope.post("/nibss/bvnr/VerifyMultipleBVN").reply(200, encrypted);
     const validate = await BVnr.VerifyMultipleBVN({
@@ -69,7 +71,8 @@ describe("Bvnr", () => {
       organisation_code,
       password,
       ivkey,
-      aes_key
+      aes_key,
+      host
     });
     expect(validate).to.have.property("message");
     expect(validate).to.have.property("data");
@@ -92,7 +95,8 @@ describe("Bvnr", () => {
       organisation_code,
       password,
       ivkey,
-      aes_key
+      aes_key,
+      host
     });
     expect(validate).to.have.property("message");
     expect(validate).to.have.property("data");
@@ -114,7 +118,8 @@ describe("Bvnr", () => {
       organisation_code,
       password,
       ivkey,
-      aes_key
+      aes_key,
+      host
     });
     expect(validate).to.have.property("message");
     expect(validate).to.have.property("data");
@@ -137,7 +142,8 @@ describe("Bvnr", () => {
       organisation_code,
       password,
       ivkey,
-      aes_key
+      aes_key,
+      host
     });
     expect(validate).to.have.property("message");
     expect(validate).to.have.property("data");
@@ -159,7 +165,8 @@ describe("Bvnr", () => {
       organisation_code,
       password,
       ivkey,
-      aes_key
+      aes_key,
+      host
     });
     expect(validate).to.have.property("Message");
     expect(validate.Message).to.equal(

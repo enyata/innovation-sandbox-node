@@ -3,12 +3,12 @@ const nock = require("nock");
 
 const Voice = require("../../lib/atlabs/Voice");
 
-const scope = nock("https://sandboxapi.fsi.ng");
 const VoiceMock = require("../mock/atlabs/Voice");
 
 const { expect } = chai;
 const { data } = VoiceMock;
-const { sandbox_key } = data;
+const { sandbox_key, host } = data;
+const scope = nock(host);
 
 describe("Voice", () => {
   it("Should return Voice Call", async () => {
@@ -18,7 +18,8 @@ describe("Voice", () => {
 
     const validate = await Voice.VoiceCall({
       sandbox_key,
-      payload: data.VoiceCall
+      payload: data.VoiceCall,
+      host
     });
     expect(validate).to.have.property("entries");
     expect(validate).to.have.property("errorMessage");
@@ -32,7 +33,8 @@ describe("Voice", () => {
 
     const validate = await Voice.FetchQueueCalls({
       sandbox_key,
-      payload: data.FetchQueuedCall
+      payload: data.FetchQueuedCall,
+      host
     });
     expect(validate).to.have.property("entries");
     expect(validate).to.have.property("errorMessage");
@@ -48,7 +50,8 @@ describe("Voice", () => {
 
     const validate = await Voice.FetchQueueCalls({
       sandbox_key,
-      payload: data.UploadMediaFile
+      payload: data.UploadMediaFile,
+      host
     });
     expect(validate).to.have.property("response");
     expect(validate.response).to.be.a("string");

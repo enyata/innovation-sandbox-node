@@ -2,13 +2,14 @@ const chai = require("chai");
 const nock = require("nock");
 
 const SMS = require("../../lib/atlabs/SMS");
-
-const scope = nock("https://sandboxapi.fsi.ng");
 const SMSMock = require("../mock/atlabs/SMS");
 
 const { expect } = chai;
 const { data } = SMSMock;
-const { sandbox_key } = data;
+
+const scope = nock(data.host);
+
+const { sandbox_key, host } = data;
 
 describe("SMS", () => {
   it("Should return SMS Service", async () => {
@@ -18,7 +19,8 @@ describe("SMS", () => {
 
     const validate = await SMS.SMSService({
       sandbox_key,
-      payload: data.SMSService
+      payload: data.SMSService,
+      host
     });
     expect(validate.SMSMessageData).to.have.property("Recipients");
     expect(validate.SMSMessageData).to.have.property("Message");
@@ -34,7 +36,8 @@ describe("SMS", () => {
 
     const validate = await SMS.PremiumSubscription({
       sandbox_key,
-      payload: data.PremiumSubscription
+      payload: data.PremiumSubscription,
+      host
     });
     expect(validate.SMSMessageData).to.have.property("Recipients");
     expect(validate.SMSMessageData).to.have.property("Message");
@@ -50,7 +53,8 @@ describe("SMS", () => {
 
     const validate = await SMS.CreatePremiumSubscription({
       sandbox_key,
-      payload: data.CreatePremiumSubscription
+      payload: data.CreatePremiumSubscription,
+      host
     });
     expect(validate).to.have.property("status");
     expect(validate).to.have.property("description");
@@ -68,7 +72,8 @@ describe("SMS", () => {
 
     const validate = await SMS.DeletePremiumSubscription({
       sandbox_key,
-      payload: data.DeletePremiumSubscription
+      payload: data.DeletePremiumSubscription,
+      host
     });
     expect(validate).to.have.property("status");
     expect(validate).to.have.property("description");
@@ -86,7 +91,8 @@ describe("SMS", () => {
 
     const validate = await SMS.FetchPremiumSubscription({
       sandbox_key,
-      payload: data.FetchPremiumSubscription
+      payload: data.FetchPremiumSubscription,
+      host
     });
     expect(validate).to.have.property("responses");
     expect(validate.responses).to.be.an("array");
@@ -99,7 +105,8 @@ describe("SMS", () => {
 
     const validate = await SMS.FetchMessage({
       sandbox_key,
-      payload: data.FetchMessage
+      payload: data.FetchMessage,
+      host
     });
     expect(validate.SMSMessageData).to.have.property("Messages");
     expect(validate).to.have.property("SMSMessageData");

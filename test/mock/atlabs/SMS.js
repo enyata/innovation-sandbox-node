@@ -2,6 +2,7 @@ const faker = require("faker");
 
 exports.data = {
   sandbox_key: "djjdkdmdfstasjs",
+  host: faker.internet.url(),
   SMSService: {
     to: `+234${faker.random.number(10000000)}`,
     from: "FSI",
