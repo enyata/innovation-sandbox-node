@@ -10,3 +10,4 @@ $ npm install innovation-sandbox --save
 
 [Nibss](https://github.com/enyata/innovation-sandbox-node/blob/master/lib/nibss/README.md)
 [Sterling](https://github.com/enyata/innovation-sandbox-node/blob/master/lib/sterling/README.md)
+[Atlabs](https://github.com/enyata/innovation-sandbox-node/blob/master/lib/atlabs/README.md)
