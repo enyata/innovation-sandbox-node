@@ -4,7 +4,7 @@ const nock = require("nock");
 const Voice = require("../../lib/atlabs/Voice");
 
 const scope = nock("https://sandboxapi.fsi.ng");
-const VoiceMock = require("../fixtures/atlabs/Voice");
+const VoiceMock = require("../mock/atlabs/Voice");
 
 const { expect } = chai;
 const { data } = VoiceMock;

@@ -232,12 +232,12 @@ We forward the linkId to your application when the user send a message to your s
 
 It specifies the number of hours your subscription message should be retried in case it's not delivered to the subscriber.
 
-### atlabs.SMS.PremiumSub(credentials)
+### atlabs.SMS.PremiumSubscription(credentials)
 
 In addition to the credentials stated above, a 'payload' key with aforementioned credentials as object of key values should be added to the object. For example,
 
 ```javascript
-atlabs.SMS.PremiumSub({
+atlabs.SMS.PremiumSubscription({
   sandbox_key: "Your sandbox key",
   payload: {
     to: "+2349091271976",
@@ -280,12 +280,12 @@ The phone number to be subscribed.
 
 This is a token used to validate the subscription request and can only be used once. Generate one from checkoutToken.
 
-### atlabs.SMS.CreatePremiumSub(credentials)
+### atlabs.SMS.CreatePremiumSubscription(credentials)
 
 In addition to the credentials stated above, a 'payload' key with aforementioned credentials as object of key values should be added to the object. For example,
 
 ```javascript
-atlabs.SMS.CreatePremiumSub({
+atlabs.SMS.CreatePremiumSubscription({
   sandbox_key: "Your sandbox key",
   payload: {
     shortCode: "19171",
@@ -322,12 +322,12 @@ Your premium product keyword
 
 The phone number whose premium subscription is to be removed.
 
-### atlabs.SMS.DeletePremiumSub(credentials)
+### atlabs.SMS.DeletePremiumSubscription(credentials)
 
 In addition to the credentials stated above, a 'payload' key with aforementioned credentials as object of key values should be added to the object. For example,
 
 ```javascript
-atlabs.SMS.DeletePremiumSub({
+atlabs.SMS.DeletePremiumSubscription({
   sandbox_key: "Your sandbox key",
   payload: {
     shortCode: "19171",
@@ -363,12 +363,12 @@ A premium keyword under the above short code and mapped to your account.
 
 This is the id of the message that you last processed. Defaults to 0
 
-### atlabs.SMS.FetchPremiumSub(credentials)
+### atlabs.SMS.FetchPremiumSubscription(credentials)
 
 In addition to the credentials stated above, a 'payload' key with aforementioned credentials as object of key values should be added to the object. For example,
 
 ```javascript
-atlabs.SMS.FetchPremiumSub({
+atlabs.SMS.FetchPremiumSubscription({
   sandbox_key: "Your sandbox key",
   payload: {
     shortCode: "19171",

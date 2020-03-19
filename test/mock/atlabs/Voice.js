@@ -13,7 +13,7 @@ exports.data = {
 
   UploadMediaFile: {
     phoneNumber: `+234${faker.random.number(1000000)}`,
-    url: "https://sandbox.fsi.ng/images/svg/fsi-logo-dark.svg"
+    url: faker.internet.url()
   }
 };
 

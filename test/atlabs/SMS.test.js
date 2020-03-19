@@ -4,7 +4,7 @@ const nock = require("nock");
 const SMS = require("../../lib/atlabs/SMS");
 
 const scope = nock("https://sandboxapi.fsi.ng");
-const SMSMock = require("../fixtures/atlabs/SMS");
+const SMSMock = require("../mock/atlabs/SMS");
 
 const { expect } = chai;
 const { data } = SMSMock;
@@ -29,12 +29,12 @@ describe("SMS", () => {
 
   it("Should return Premium Subscription ", async () => {
     scope
-      .post("/atlabs/messaging/premium", data.PremiumSub)
-      .reply(200, SMSMock.PremiumSub);
+      .post("/atlabs/messaging/premium", data.PremiumSubscription)
+      .reply(200, SMSMock.PremiumSubscription);
 
-    const validate = await SMS.PremiumSub({
+    const validate = await SMS.PremiumSubscription({
       sandbox_key,
-      payload: data.PremiumSub
+      payload: data.PremiumSubscription
     });
     expect(validate.SMSMessageData).to.have.property("Recipients");
     expect(validate.SMSMessageData).to.have.property("Message");
@@ -45,12 +45,12 @@ describe("SMS", () => {
 
   it("Should return Create Premium Subscription ", async () => {
     scope
-      .post("/atlabs/messaging/subscription", data.CreatePremiumSub)
-      .reply(200, SMSMock.CreatePremiumSub);
+      .post("/atlabs/messaging/subscription", data.CreatePremiumSubscription)
+      .reply(200, SMSMock.CreatePremiumSubscription);
 
-    const validate = await SMS.CreatePremiumSub({
+    const validate = await SMS.CreatePremiumSubscription({
       sandbox_key,
-      payload: data.CreatePremiumSub
+      payload: data.CreatePremiumSubscription
     });
     expect(validate).to.have.property("status");
     expect(validate).to.have.property("description");
@@ -60,12 +60,15 @@ describe("SMS", () => {
 
   it("Should return Delete Premium Subscription", async () => {
     scope
-      .post("/atlabs/messaging/subscription/delete", data.DeletePremiumSub)
-      .reply(200, SMSMock.DeletePremiumSub);
+      .post(
+        "/atlabs/messaging/subscription/delete",
+        data.DeletePremiumSubscription
+      )
+      .reply(200, SMSMock.DeletePremiumSubscription);
 
-    const validate = await SMS.DeletePremiumSub({
+    const validate = await SMS.DeletePremiumSubscription({
       sandbox_key,
-      payload: data.DeletePremiumSub
+      payload: data.DeletePremiumSubscription
     });
     expect(validate).to.have.property("status");
     expect(validate).to.have.property("description");
@@ -75,12 +78,15 @@ describe("SMS", () => {
 
   it("Should return Fetch Premium Subscription", async () => {
     scope
-      .post("/atlabs/messaging/subscription/fetch", data.FetchPremiumSub)
-      .reply(200, SMSMock.FetchPremiumSub);
+      .post(
+        "/atlabs/messaging/subscription/fetch",
+        data.FetchPremiumSubscription
+      )
+      .reply(200, SMSMock.FetchPremiumSubscription);
 
-    const validate = await SMS.FetchPremiumSub({
+    const validate = await SMS.FetchPremiumSubscription({
       sandbox_key,
-      payload: data.FetchPremiumSub
+      payload: data.FetchPremiumSubscription
     });
     expect(validate).to.have.property("responses");
     expect(validate.responses).to.be.an("array");
@@ -100,5 +106,4 @@ describe("SMS", () => {
     expect(validate.SMSMessageData).to.be.an("object");
     expect(validate.SMSMessageData.Messages).to.be.an("array");
   });
-
 });
