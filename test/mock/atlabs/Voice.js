@@ -2,6 +2,7 @@ const faker = require("faker");
 
 exports.data = {
   sandbox_key: "smskfskjfsmalked",
+  host: faker.internet.url(),
   VoiceCall: {
     callFrom: `+234${faker.random.number(10000000)}`,
     callTo: `+234${faker.random.number(1000000)}`

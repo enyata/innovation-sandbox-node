@@ -2,6 +2,7 @@ const faker = require("faker");
 
 exports.data = {
   sandbox_key: "smskfskjfsmalked",
+  host: faker.internet.url(),
   payload: {
     phoneNumber: `+234${faker.random.number(10)}`
   }

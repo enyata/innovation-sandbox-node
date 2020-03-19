@@ -10,7 +10,8 @@ exports.data = {
         currencyCode: "NGN"
       }
     ]
-  }
+  },
+  host: faker.internet.url()
 };
 
 exports.SendAirtime = {

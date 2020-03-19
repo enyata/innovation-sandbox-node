@@ -3,11 +3,11 @@ const nock = require("nock");
 
 const Token = require("../../lib/atlabs/Token");
 
-const scope = nock("https://sandboxapi.fsi.ng");
 const TokenMock = require("../mock/atlabs/Token");
 
 const { expect } = chai;
 const { data } = TokenMock;
+const scope = nock(data.host);
 
 describe("Token", () => {
   it("Should return success", async () => {

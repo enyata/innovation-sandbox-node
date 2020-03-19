@@ -2,9 +2,9 @@ const chai = require("chai");
 const nock = require("nock");
 
 const Transfer = require("../../lib/sterling/Transfer");
-
-const scope = nock("https://sandboxapi.fsi.ng");
 const TransferMock = require("../mock/sterling/Transfer");
+
+const scope = nock(TransferMock.data.host);
 const { params } = TransferMock.data;
 
 const { expect } = chai;

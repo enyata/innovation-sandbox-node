@@ -3,11 +3,12 @@ const nock = require("nock");
 
 const Airtime = require("../../lib/atlabs/Airtime");
 
-const scope = nock("https://sandboxapi.fsi.ng");
 const AirtimeMock = require("../mock/atlabs/Airtime");
 
 const { expect } = chai;
 const { data } = AirtimeMock;
+
+const scope = nock(data.host);
 
 describe("Airtime", () => {
   it("Should return Airtime sent", async () => {
