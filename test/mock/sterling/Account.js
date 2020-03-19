@@ -1,14 +1,17 @@
 const faker = require("faker");
 
-exports.InterbankTransferReq = {
+exports.InterbankNameEnquiry = {
   message: "OK",
   data: {
     message: "success",
     response: "success",
-    responsedata: null,
     data: {
-      ResponseText: "Your transaction has been submitted for processing.",
-      status: "00"
+      AccountName: faker.name.findName(),
+      sessionID: `${faker.random.number(1000000000000000)}`,
+      AccountNumber: `${faker.random.number(1000000000000000)}`,
+      status: `${faker.random.number(1000000000000000)}`,
+      BVN: `${faker.random.number(1000000000000000)}`,
+      ResponseText: null
     }
   }
 };
@@ -16,20 +19,12 @@ exports.InterbankTransferReq = {
 exports.data = {
   sandbox_key: "abcdefghijklmnop",
   host: faker.internet.url(),
-  payload: {
-    Referenceid: faker.random.number(10000),
-    RequestType: faker.random.number(10000),
-    Translocation: faker.random.number(10000),
-    SessionID: faker.random.number(100),
-    FromAccount: faker.random.number(100),
-    ToAccount: faker.random.number(100),
-    Amount: faker.random.number(100),
-    DestinationBankCode: faker.random.number(100),
-    NEResponse: faker.random.number(100),
-    BenefiName: faker.random.number(100),
-    PaymentReference: faker.random.number(100),
-    OriginatorAccountName: faker.random.number(100),
-    translocation: faker.random.number(100)
+  params: {
+    Referenceid: faker.random.number(100),
+    RequestType: faker.random.number(100),
+    Translocation: faker.random.number(100),
+    ToAccount: faker.random.number(1000000000),
+    destinationbankcode: faker.random.number(100)
   },
   subscription_key: "t",
   Appid: faker.random.number(100),
