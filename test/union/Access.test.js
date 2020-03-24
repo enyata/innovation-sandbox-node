@@ -11,8 +11,8 @@ const scope = nock(data.host);
 describe("Access", () => {
   it("Should return Token", async () => {
     scope.post("/union/oauth/token", data.payload).reply(200, AccessMock.Token);
-    let validate = await Access.Token(data);
-    validate = JSON.parse(validate);
+
+    const validate = JSON.parse(await Access.Token(data));
 
     expect(validate).to.have.property("message");
     expect(validate).to.have.property("data");

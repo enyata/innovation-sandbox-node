@@ -17,6 +17,7 @@ describe("Customer Enquiry", () => {
       .post("/union/secured/cbaaccountenquiry")
       .query(params)
       .reply(200, CustomerMock.AccountEnquiry);
+
     const validate = await Customer.AccountEnquiry({
       sandbox_key,
       payload: data.AccountEnquiry,
@@ -36,6 +37,7 @@ describe("Customer Enquiry", () => {
       .post("/union/secured/cbacustomerenquiry")
       .query(params)
       .reply(200, CustomerMock.CustomerEnquiry);
+
     const validate = await Customer.CustomerEnquiry({
       sandbox_key,
       payload: data.CustomerEnquiry,
@@ -55,6 +57,7 @@ describe("Customer Enquiry", () => {
       .post("/union/secured/cbacustomeraccountenquiry")
       .query(params)
       .reply(200, CustomerMock.CustomerAccountEnquiry);
+
     const validate = await Customer.CustomerAccountEnquiry({
       sandbox_key,
       payload: data.CustomerAccountEnquiry,
@@ -74,6 +77,7 @@ describe("Customer Enquiry", () => {
       .post("/union/secured/changeusercredentials")
       .query(params)
       .reply(200, CustomerMock.ChangeUserCredentials);
+
     const validate = await Customer.ChangeUserCredentials({
       sandbox_key,
       payload: data.ChangeUserCredentials,
