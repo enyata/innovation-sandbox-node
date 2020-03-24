@@ -18,7 +18,7 @@ Below is a list of common credentials.
 
 ### sandbox_key
 
-This can be found in the innovation sandbox dashboard after sign up. However `0ae0db703c04119b3db7a03d7f854c13` can be used for testing purposes.
+This can be found in the innovation sandbox dashboard after sign up.
 
 ### host
 
@@ -54,12 +54,12 @@ Request Body
 
 ###### password
 
-### union.Access.TokenGeneration(credentials)
+### union.Access.Token(credentials)
 
 In addition to the credentials stated above, a 'payload' key with aforementioned credentials as object of key values should be added to the object. For example,
 
 ```javascript
-union.Access.TokenGeneration({
+union.Access.Token({
   sandbox_key: "Your sandbox_key",
   payload: {
     client_secret: "secret",
@@ -94,7 +94,7 @@ In addition to the credentials stated above, a 'payload' key with aforementioned
 union.Customer.CustomerEnquiry({
   sandbox_key: "Your sandbox_key",
   host: "Your host || null",
-  params: { access_token: "Access Token from TokenGeneration" },
+  params: { access_token: "Access Token from Token" },
   payload: {
     accountNumber: "0000791200",
     accountType: "CASA"
@@ -125,7 +125,7 @@ In addition to the credentials stated above, a 'payload' key with aforementioned
 union.Customer.AccountEnquiry({
   sandbox_key: "Your sandbox_key",
   host: "Your host || null",
-  params: { access_token: "Access Token from TokenGeneration" },
+  params: { access_token: "Access Token from Token" },
   payload: {
     accountNumber: "0000791200",
     accountType: "CASA"
@@ -148,15 +148,15 @@ The module accepts options as objects of key-value.
 
 Request Body
 
-### union.Customer.CustomerAndAccountEnquiry(credentials)
+### union.Customer.CustomerAccountEnquiry(credentials)
 
 In addition to the credentials stated above, a 'payload' key with aforementioned credentials as object of key values should be added to the object and also a 'params' key which holds the access token should be added. For example,
 
 ```javascript
-union.Customer.CustomerAndAccountEnquiry({
+union.Customer.CustomerAccountEnquiry({
   sandbox_key: "Your sandbox_key",
   host: "Your host || null",
-  params: { access_token: "Access Token from TokenGeneration" },
+  params: { access_token: "Access Token from Token" },
   payload: {
     accountNumber: "0000791200",
     accountType: "CASA"
@@ -187,7 +187,7 @@ In addition to the credentials stated above, a 'payload' key with aforementioned
 union.Customer.ChangeUserCredentials({
   sandbox_key: "Your sandbox_key",
   host: "Your host || null",
-  params: { access_token: "Access Token from TokenGeneration" },
+  params: { access_token: "Access Token from Token" },
   payload: {
     username: "user1",
     oldPassword: "password2",

@@ -10,17 +10,16 @@ const scope = nock(data.host);
 
 describe("Access", () => {
   it("Should return Token", async () => {
-    scope
-      .post("/union/oauth/token", data.payload)
-      .reply(200, AccessMock.TokenGeneration);
-    const validate = await Access.TokenGeneration(data);
+    scope.post("/union/oauth/token", data.payload).reply(200, AccessMock.Token);
+    let validate = await Access.Token(data);
+    validate = JSON.parse(validate);
 
-    expect(JSON.parse(validate)).to.have.property("message");
-    expect(JSON.parse(validate)).to.have.property("data");
-    expect(JSON.parse(validate).data).to.have.property("access_token");
-    expect(JSON.parse(validate).data).to.have.property("token_type");
-    expect(JSON.parse(validate).data).to.have.property("refresh_token");
-    expect(JSON.parse(validate).data).to.be.an("object");
-    expect(JSON.parse(validate).data.scope).to.equal("read");
+    expect(validate).to.have.property("message");
+    expect(validate).to.have.property("data");
+    expect(validate.data).to.have.property("access_token");
+    expect(validate.data).to.have.property("token_type");
+    expect(validate.data).to.have.property("refresh_token");
+    expect(validate.data).to.be.an("object");
+    expect(validate.data.scope).to.equal("read");
   });
 });

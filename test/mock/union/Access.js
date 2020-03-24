@@ -12,7 +12,7 @@ exports.data = {
   host: faker.internet.url()
 };
 
-exports.TokenGeneration = {
+exports.Token = {
   message: "OK",
   data: {
     access_token: faker.random.alphaNumeric(),

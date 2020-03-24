@@ -54,10 +54,10 @@ describe("Customer Enquiry", () => {
     scope
       .post("/union/secured/cbacustomeraccountenquiry")
       .query(params)
-      .reply(200, CustomerMock.CustomerAndAccountEnquiry);
-    const validate = await Customer.CustomerAndAccountEnquiry({
+      .reply(200, CustomerMock.CustomerAccountEnquiry);
+    const validate = await Customer.CustomerAccountEnquiry({
       sandbox_key,
-      payload: data.CustomerAndAccountEnquiry,
+      payload: data.CustomerAccountEnquiry,
       host,
       params
     });

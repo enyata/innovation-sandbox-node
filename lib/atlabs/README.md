@@ -18,7 +18,7 @@ Below is a list of required credentials.
 
 ### sandbox_key
 
-This can be found in the innovation sandbox dashboard after sign up. However `0ae0db703c04119b3db7a03d7f854c13` can be used for testing purposes.
+This can be found in the innovation sandbox dashboard after sign up.
 
 ### host
 

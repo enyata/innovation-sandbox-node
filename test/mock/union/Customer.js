@@ -12,7 +12,7 @@ exports.data = {
     accountNumber: faker.random.number(),
     accountType: faker.random.word()
   },
-  CustomerAndAccountEnquiry: {
+  CustomerAccountEnquiry: {
     accountNumber: faker.random.number(),
     accountType: faker.random.word()
   },
@@ -73,7 +73,7 @@ exports.CustomerEnquiry = {
   }
 };
 
-exports.CustomerAndAccountEnquiry = {
+exports.CustomerAccountEnquiry = {
   message: "OK",
   data: {
     code: "00",

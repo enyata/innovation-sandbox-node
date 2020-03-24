@@ -9,7 +9,7 @@ $ npm install innovation-sandbox
 ## Require sterling Library
 
 ```javascript
-const { sterling } = require('innovation-sandbox');
+const { sterling } = require("innovation-sandbox");
 ```
 
 ## Common Credentials
@@ -17,7 +17,8 @@ const { sterling } = require('innovation-sandbox');
 Below is a list of required credentials.
 
 ### sandbox_key
-This can be found in the innovation sandbox dashboard after sign up. However `0ae0db703c04119b3db7a03d7f854c13` can be used for testing purposes.
+
+This can be found in the innovation sandbox dashboard after sign up.
 
 ### host
 
@@ -73,18 +74,18 @@ In addition to the credentials stated above, a 'params' key with aforementioned 
 
 ```javascript
 sterling.Account.InterbankNameEnquiry({
-  sandbox_key: 'Your sandbox_key',
+  sandbox_key: "Your sandbox_key",
   params: {
-    Referenceid: 'Your Transaction ID || 01',
-    RequestType: 'Transaction Type || 01',
-    Translocation: 'Transaction Location Longitude Latitude || 01',
-    ToAccount: 'Transaction Recipient Account || 0037514056',
-    destinationbankcode: 'Destination Bank Code || 000001'
+    Referenceid: "Your Transaction ID || 01",
+    RequestType: "Transaction Type || 01",
+    Translocation: "Transaction Location Longitude Latitude || 01",
+    ToAccount: "Transaction Recipient Account || 0037514056",
+    destinationbankcode: "Destination Bank Code || 000001"
   },
-  subscription_key: 'Your Subscription Key || t',
-  Appid: 'Your App ID || 69',
-  ipval: 'Your IP || 0',
-  host: 'Your host url || null'
+  subscription_key: "Your Subscription Key || t",
+  Appid: "Your App ID || 69",
+  ipval: "Your IP || 0",
+  host: "Your host url || null"
 }).then(res => {
   //do something
 });
@@ -154,26 +155,26 @@ In additions to the credentials stated above a 'payload' key with addition reque
 
 ```javascript
 sterling.Transfer.InterbankTransferReq({
-  sandbox_key: 'Your sandbox key',
+  sandbox_key: "Your sandbox key",
   payload: {
-    Referenceid: 'Your Transaction ID || 0101',
-    RequestType: 'Transaction Type || 0101',
-    Translocation: 'Transaction Location Longitude Latitude || 0101',
-    ToAccount: 'Transaction Recipient Account || 01',
-    Destinationbankcode: 'Destination Bank Code || 01',
-    SessionID: 'Transaction Session ID || 01',
-    FromAccount: 'Transaction Sender || 01',
-    Amount: 'Transaction Amount || 01',
-    NEResponse: 'NEResponse || 01',
-    BenefiName: 'Transaction Recipient Name || 01',
-    PaymentReference: 'Input Payment Reference || 01',
-    OriginatorAccountName: 'Transaction Initiate Account Name || 01',
-    translocation: 'translocation || 01'
+    Referenceid: "Your Transaction ID || 0101",
+    RequestType: "Transaction Type || 0101",
+    Translocation: "Transaction Location Longitude Latitude || 0101",
+    ToAccount: "Transaction Recipient Account || 01",
+    Destinationbankcode: "Destination Bank Code || 01",
+    SessionID: "Transaction Session ID || 01",
+    FromAccount: "Transaction Sender || 01",
+    Amount: "Transaction Amount || 01",
+    NEResponse: "NEResponse || 01",
+    BenefiName: "Transaction Recipient Name || 01",
+    PaymentReference: "Input Payment Reference || 01",
+    OriginatorAccountName: "Transaction Initiate Account Name || 01",
+    translocation: "translocation || 01"
   },
-  subscription_key: 'Your Subscription Key || t',
-  Appid: 'Your App ID || 69',
-  ipval: 'Your IP || 0',
-  host: 'Your host url || null'
+  subscription_key: "Your Subscription Key || t",
+  Appid: "Your App ID || 69",
+  ipval: "Your IP || 0",
+  host: "Your host url || null"
 }).then(res => {
   //do something
 });
