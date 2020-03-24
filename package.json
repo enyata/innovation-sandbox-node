@@ -29,7 +29,7 @@
     "eslint-config-airbnb-base": "~14.0.0",
     "eslint-plugin-import": "~2.19.1",
     "faker": "~4.1.0",
-    "mocha": "~7.0.0",
+    "mocha": "^7.0.1",
     "nock": "~12.0.3",
     "utf8": "~3.0.0"
   }
