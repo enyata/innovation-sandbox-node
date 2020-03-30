@@ -36,9 +36,9 @@ Application ID
 
 ip value
 
-## Interbank Name EnquiryY([options])
+## Interbank Name Enquiry([options])
 
-Verifies name
+You can query and confirm account details using a valid NUBAN, in any bank.
 
 ### options
 
@@ -93,7 +93,7 @@ sterling.Account.InterbankNameEnquiry({
 
 ## Interbank Transfer([options])
 
-You can query and confirm account details using a valid NUBAN, in any bank.
+You can transfer funds from one bank or a financial institution to another.
 
 ### options
 
