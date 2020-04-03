@@ -2,26 +2,26 @@ const chai = require("chai");
 const nock = require("nock");
 
 const Account = require("../../lib/sterling/Account");
-
 const AccountMock = require("../mock/sterling/Account");
 
-const { expect } = chai;
 const { data } = AccountMock;
-const { params, host } = data;
-const scope = nock(host);
+const scope = nock(data.host);
+const { expect } = chai;
 
 describe("Account", () => {
-  it("Should return user data ", async () => {
+  it("Should return successful transaction ", async () => {
     scope
-      .get("/sterling/TransferAPIs/api/Spay/InterbankNameEnquiry")
-      .query(params)
-      .reply(200, AccountMock.InterbankNameEnquiry);
-    const validate = await Account.InterbankNameEnquiry(data);
+      .post("/sterling/accountapi/api/Spay/InterbankTransferReq", data.payload)
+      .reply(200, AccountMock.InterbankTransferReq);
+
+    const validate = await Account.InterbankTransferReq(data);
 
     expect(validate).to.have.property("message");
     expect(validate).to.have.property("data");
     expect(validate.message).to.equal("OK");
     expect(validate.data).to.be.an("object");
-    expect(validate.data.data).to.have.property("BVN");
+    expect(validate.data.data.ResponseText).to.equal(
+      "Your transaction has been submitted for processing."
+    );
   });
 });
