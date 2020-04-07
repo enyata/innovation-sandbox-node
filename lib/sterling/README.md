@@ -36,9 +36,9 @@ Application ID
 
 ip value
 
-## Interbank Name EnquiryY([options])
+## Interbank Name Enquiry([options])
 
-Verifies name
+You can query and confirm account details using a valid NUBAN, in any bank.
 
 ### options
 
@@ -68,12 +68,12 @@ This is the nuban of the transaction recipient account.
 
 This is the destination bank's code
 
-### sterling.Account.InterbankNameEnquiry(credentials)
+### sterling.Transfer.InterbankNameEnquiry(credentials)
 
 In addition to the credentials stated above, a 'params' key with aforementioned credentials as object of key values should be added to the object. For example,
 
 ```javascript
-sterling.Account.InterbankNameEnquiry({
+sterling.Transfer.InterbankNameEnquiry({
   sandbox_key: "Your sandbox_key",
   params: {
     Referenceid: "Your Transaction ID || 01",
@@ -93,7 +93,7 @@ sterling.Account.InterbankNameEnquiry({
 
 ## Interbank Transfer([options])
 
-You can query and confirm account details using a valid NUBAN, in any bank.
+You can transfer funds from one bank or a financial institution to another.
 
 ### options
 
@@ -149,12 +149,12 @@ Account name of the transfer initiator
 
 GPS of the originating location of the transaction in longitude & latitude.
 
-### sterling.Transfer.InterbankTransferReq(credentials)
+### sterling.Account.InterbankTransferReq(credentials)
 
 In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-sterling.Transfer.InterbankTransferReq({
+sterling.Account.InterbankTransferReq({
   sandbox_key: "Your sandbox key",
   payload: {
     Referenceid: "Your Transaction ID || 0101",
