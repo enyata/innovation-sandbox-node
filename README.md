@@ -12,3 +12,4 @@ $ npm install innovation-sandbox --save
 [Sterling](https://github.com/enyata/innovation-sandbox-node/blob/master/lib/sterling/README.md)
 [Atlabs](https://github.com/enyata/innovation-sandbox-node/blob/master/lib/atlabs/README.md)
 [Union](https://github.com/enyata/innovation-sandbox-node/blob/master/lib/union/README.md)
+[relianceHMO](https://github.com/enyata/innovation-sandbox-node/blob/master/lib/relianceHMO/README.md)
