@@ -415,12 +415,12 @@ Request Params
 
 ##### hmo_id
 
-### InnovationSandbox\RelianceHMO\Enrollees\Card(credentials)
+### relianceHMO.enrollees.IdCard(credentials)
 
 Below is a sample with test data;
 
 ```javascript
-relianceHMO.enrollees["Id-card"]({
+relianceHMO.enrollees.IdCard({
   sandbox_key: "Your sandbox_key",
   params: {
     hmo_id: "TXT/10002/A",
@@ -622,7 +622,7 @@ Get states. This can be used to provide the state_id for client signup.
 
 The module accepts options as object of key-value.
 
-### relianceHMO,utilities.States(credentials)
+### relianceHMO.utilities.States(credentials)
 
 Below is a sample with test data;
 
@@ -775,7 +775,7 @@ Request Body
 
 ##### amount
 
-### InnovationSandbox\RelianceHMO\Wallet\Fund(credentials)
+### relianceHMO.wallet.Fund(credentials)
 
 Below is a sample with test data;
 
@@ -799,7 +799,7 @@ Retrieve Wallet Transactions for client.
 
 The module accepts options as object of key-value.
 
-### InnovationSandbox\RelianceHMO\Wallet\Transactions(credentials)
+### relianceHMO.wallet.Transactions(credentials)
 
 Below is a sample with test data;
 
