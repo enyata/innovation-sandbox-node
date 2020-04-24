@@ -41,9 +41,9 @@ describe('Main ', () => {
         scope
             .get('/relianceHMO/enrollees')
             .query(EnrolleesQuery)
-            .reply(200, MainMock.EnrolleesGet);
+            .reply(200, MainMock.Enrollees);
 
-        const validate = await Main.EnrolleesGet({
+        const validate = await Main.Enrollees({
             sandbox_key,
             host,
             params: EnrolleesQuery,
@@ -56,9 +56,9 @@ describe('Main ', () => {
     });
 
     it('Should return Enrollees Post data ', async() => {
-        scope.post('/relianceHMO/enrollees').reply(200, MainMock.EnrolleesPost);
+        scope.post('/relianceHMO/enrollees').reply(200, MainMock.Register);
 
-        const validate = await Main.EnrolleesPost({
+        const validate = await Main.Register({
             sandbox_key,
             host,
             payload: EnrolleesBody,

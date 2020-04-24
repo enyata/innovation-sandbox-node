@@ -122,7 +122,7 @@ exports.Plans = {
     },
 };
 
-exports.EnrolleesPost = {
+exports.Register = {
     status: 'success',
     data: {
         transfer_code: faker.random.alphaNumeric(5),
@@ -167,7 +167,7 @@ exports.EnrolleesPost = {
     },
 };
 
-exports.EnrolleesGet = {
+exports.Enrollees = {
     status: 'success',
     data: [
         {

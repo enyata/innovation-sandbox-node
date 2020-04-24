@@ -214,7 +214,7 @@ Below is a sample with test data;
 
 ```javascript
 relianceHMO.main
-  .EnrolleesPost({
+  .Register({
     sandbox_key: "Your sandbox_key",
     payload: {
       enrollees: [
@@ -273,13 +273,13 @@ Request Params
 
 ##### limit
 
-### relianceHMO.main.EnrolleesGet(credentials)
+### relianceHMO.main.Enrollees(credentials)
 
 Below is a sample with test data;
 
 ```javascript
 relianceHMO.main
-  .EnrolleesGet({
+  .Enrollees({
     sandbox_key: "Your sandbox_key",
     params: {
       page: "1",
