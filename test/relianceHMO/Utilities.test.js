@@ -102,9 +102,9 @@ describe('Utilities ', () => {
     it('Should return Utilities Marital_statuses data ', async() => {
         scope
             .get('/relianceHMO/utilities/marital_statuses')
-            .reply(200, UtilitiesMock.Marital_statuses);
+            .reply(200, UtilitiesMock.MaritalStatuses);
 
-        const validate = await Utilities.Marital_statuses({
+        const validate = await Utilities.MaritalStatuses({
             sandbox_key,
             host,
         });

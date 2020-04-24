@@ -116,7 +116,7 @@ exports.Occupations = {
     ],
 };
 
-exports.Marital_statuses = {
+exports.MaritalStatuses = {
     status: 'success',
     data: [
         {

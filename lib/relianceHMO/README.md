@@ -723,13 +723,13 @@ Get Marital Status(es) for enrollee profile.
 
 The module accepts options as object of key-value.
 
-### relianceHMO.utilities.Marital_statuses(credentials)
+### relianceHMO.utilities.MaritalStatuses(credentials)
 
 Below is a sample with test data;
 
 ```javascript
 relianceHMO.utilities
-  .Marital_statuses({
+  .MaritalStatuses({
     sandbox_key: "Your sandbox_key",
     host: "Your host || null",
   })
