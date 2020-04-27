@@ -6,7 +6,7 @@
 $ npm install innovation-sandbox
 ```
 
-## Require UNION Library
+## Require relianceHMO Library
 
 ```javascript
 const { relianceHMO } = require("innovation-sandbox");
