@@ -9,5 +9,5 @@ module.exports = {
     FingerPrintMock,
     PlaceHolderMock,
     TransferMock,
-    AccountMock
+    AccountMock,
 };
