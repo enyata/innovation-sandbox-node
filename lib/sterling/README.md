@@ -180,6 +180,82 @@ sterling.Account.InterbankTransferReq({
 });
 ```
 
+## Mobile Wallet Request([options])
+
+You can perform wallet transaction request to other banks or financial institutions.
+
+### options
+
+The module accepts options as objects of key-value.
+
+#### payload
+
+Request Body
+
+##### Referenceid
+
+This is the unique number that identifies transactions/request.
+
+##### RequestType
+
+The is the identify of the request being processed.
+
+##### Translocation
+
+GPS of the originating location of the transaction in longitude & latitude.
+
+##### Amount
+
+This is the amount sent.
+
+##### TellerId
+
+##### FromAccount
+
+This is the nuban of the transaction sender account.
+
+##### ToAccount
+
+This is the nuban of the transaction recipient account.
+
+##### ExpCode
+
+##### PaymentReference
+
+A unique identifier for the transaction
+
+##### Remark
+
+This is a remark that describes the purpose of the transaction
+
+### sterling.Account.MobileWalletRequest(credentials)
+
+In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
+
+```javascript
+sterling.Account.MobileWalletRequest({
+  sandbox_key: "Your sandbox key",
+  payload: {
+    Referenceid: "Your Transaction ID || 0101",
+    RequestType: "Transaction Type || 0101",
+    Translocation: "Transaction Location Longitude Latitude || 0101",
+    Amount: "Transaction Amount || 01",
+    TellerID: "Transaction Teller ID || 01",
+    FromAccount: "Transaction Sender Account || 0051561375",
+    ToAccount: "Transaction Recipient Account || 0037514056",
+    ExpCode: "Transaction exp code || 01",
+    PaymentReference: "Input Payment Reference || 01",
+    Remarks: "Transaction remarks || Monthly subscription"
+  },
+  subscription_key: "Your Subscription Key || t",
+  Appid: "Your App ID || 69",
+  ipval: "Your IP || 0",
+  host: "Your host url || null"
+}).then(res => {
+  //do something
+});
+```
+
 ## RUNNING TEST
 
 After installing dependencies, run the command
