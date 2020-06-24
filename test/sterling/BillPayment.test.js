@@ -33,7 +33,7 @@ describe('Bill Payment', () => {
 
     it('Should return list of billing services under a billing company ', async() => {
         scope
-            .get('/sterling/billpaymentapi/api/Spay/GetBillersISWRequest')
+            .get('/sterling/billpaymentapi/api/Spay/GetBillerPmtItemsRequest')
             .query(data.BillerPaymentItems.params)
             .reply(200, BillPaymentMock.BillerPaymentItems);
         const validate = await BillPayment.BillerPaymentItems({
