@@ -182,7 +182,7 @@ sterling.Account.InterbankTransferReq({
 
 ## Mobile Wallet Request([options])
 
-You can perform wallet transaction request to other banks or financial institutions.
+Want to perform wallet transactions? It works best with our Mobile Wallet API.
 
 ### options
 
@@ -236,25 +236,193 @@ In additions to the credentials stated above a 'payload' key with addition reque
 sterling.Account.MobileWalletRequest({
   sandbox_key: "Your sandbox key",
   payload: {
-    Referenceid: "Your Transaction ID || 0101",
-    RequestType: "Transaction Type || 0101",
-    Translocation: "Transaction Location Longitude Latitude || 0101",
-    Amount: "Transaction Amount || 01",
-    TellerID: "Transaction Teller ID || 01",
-    FromAccount: "Transaction Sender Account || 0051561375",
-    ToAccount: "Transaction Recipient Account || 0037514056",
-    ExpCode: "Transaction exp code || 01",
-    PaymentReference: "Input Payment Reference || 01",
-    Remarks: "Transaction remarks || Monthly subscription"
+    Referenceid: "Your Transaction ID || 01",
+    RequestType: "Transaction Type || 0",
+    Translocation: "Transaction Location Longitude Latitude || 01",
+    amt: "Transaction Amount || 2000",
+    tellerid: "Transaction Teller ID || 01",
+    frmacct: "Transaction Sender Account || 0051561375",
+    toacct: "Transaction Recipient Account || 0037514056",
+    exp_code: "Transaction exp code || 01",
+    paymentRef: "Input Payment Reference || 01",
+    remarks: "Transaction remarks || Monthly subscription"
   },
   subscription_key: "Your Subscription Key || t",
-  Appid: "Your App ID || 69",
-  ipval: "Your IP || 0",
   host: "Your host url || null"
 }).then(res => {
   //do something
 });
 ```
+
+## Bill Payment Advice([options])
+This provides the list of all billing services available to a particular billing company.
+
+### options
+
+The module accepts options as objects of key-value.
+
+#### payload
+
+Request Body
+
+##### Referenceid
+
+This is the unique number that identifies transactions/request.
+
+##### RequestType
+
+The is the identify of the request being processed.
+
+##### Translocation
+
+GPS of the originating location of the transaction in longitude & latitude.
+
+##### Amount
+
+This is the amount to be billed.
+
+##### PaymentCode
+
+This is the specific code for the particular bill service payment
+
+##### Mobile
+
+This is the mobile number of the user
+
+##### SubscriberInformation
+
+##### ActionType
+
+This is the specific action that one wants to perform
+
+##### Nuban
+
+The account number of the user
+
+##### Email
+
+The email address of the user
+
+### sterling.BillPayment.BillPaymentAdvice(credentials)
+
+In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
+
+```javascript
+sterling.BillPayment.BillPaymentAdvice({
+  sandbox_key: "Your sandbox key",
+  payload: {
+    Referenceid: "Your Transaction ID || 01",
+    RequestType: "Transaction Type || 0",
+    Translocation: "Transaction Location Longitude Latitude || 01",
+    amt: "Billing Amount || 2000",
+    paymentcode: "Billing Payment Code || 01",
+    mobile: "Sender Mobile Number || 08051561375",
+    SubscriberInfo1: "Subscriber Information || 0037514056",
+    ActionType: "Type Of Billing Action || 01",
+    nuban: "Sender Account Number || 0037514056",
+    email: "Sender Email Address || sender@gmail.com"
+  },
+  subscription_key: "Your Subscription Key || t",
+  host: "Your host url || null"
+}).then(res => {
+  //do something
+});
+```
+
+## Biller Payment Items([options])
+
+This provides the list of all billing services available to a particular billing company.
+
+### options
+
+The module accepts options as objects of key-value.
+
+#### params
+
+Query Params
+
+##### Referenceid
+
+This is the unique number that identifies transactions/request.
+
+##### RequestType
+
+The is the identifier of the request being processed.
+
+##### Translocation
+
+GPS of the originating location of the transaction in longitude & latitude.
+
+##### BillerId
+
+This is the identity of the biller service
+
+
+### sterling.BillPayment.BillerPaymentItems(credentials)
+
+In addition to the credentials stated above, a 'params' key with aforementioned credentials as object of key values should be added to the object. For example,
+
+```javascript
+sterling.BillPayment.BillerPaymentItems({
+  sandbox_key: "Your sandbox_key",
+  params: {
+    Referenceid: "Your Transaction ID || 01",
+    RequestType: "Transaction Type || 01",
+    Translocation: "Transaction Location Longitude Latitude || 01",
+    Bvn: "Account BVN Number || 2098765428",
+    billerid: "Biller Service Identity || 002"
+  },
+  subscription_key: "Your Subscription Key || t",
+  host: "Your host url || null"
+}).then(res => {
+  //do something
+});
+```
+
+## Billers ISW([options])
+
+This provides the list of all billing services available.
+
+### options
+
+The module accepts options as objects of key-value.
+
+#### params
+
+Query Params
+
+##### Referenceid
+
+This is the unique number that identifies transactions/request.
+
+##### RequestType
+
+The is the identifier of the request being processed.
+
+##### Translocation
+
+GPS of the originating location of the transaction in longitude & latitude.
+
+### sterling.BillPayment.BillersISW(credentials)
+
+In addition to the credentials stated above, a 'params' key with aforementioned credentials as object of key values should be added to the object. For example,
+
+```javascript
+sterling.BillPayment.BillersISW({
+  sandbox_key: "Your sandbox_key",
+  params: {
+    Referenceid: "Your Transaction ID || 01",
+    RequestType: "Transaction Type || 01",
+    Translocation: "Transaction Location Longitude Latitude || 01",
+    Bvn: "Account BVN Number || 2098765428"
+  },
+  subscription_key: "Your Subscription Key || t",
+  host: "Your host url || null"
+}).then(res => {
+  //do something
+});
+```
+
 
 ## RUNNING TEST
 
