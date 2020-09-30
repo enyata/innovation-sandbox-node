@@ -40,9 +40,9 @@ This is mostly default to application/json except otherwise stated. It is used i
 
 It is used in the header. What it takes varies by API.
 
-___
+__________________________________________
 
-## *Validate Customer By Id([options])*
+## Validate Customer By Id([options])
 
 Validation using the customer id.
 
@@ -54,17 +54,17 @@ The module accepts options as objects of key-value.
 
 Request Body
 
-### *tokenCode*
+### tokenCode
 
 This is a token code
 
-### *customerId*
+### customerId
 
 This is the Id of the customer
 
-### *appId*
+### appId
 
-### *appToken*
+### appToken
 
 ## fcmb.Authentication.ValidateByCustomerId(credentials)
 
@@ -87,276 +87,31 @@ fcmb.Authentication.ValidateByCustomerId({
     //do something
 });
 ```
-___
+_______________________________
 
-## *Authenticate last 4 Digits([options])*
-
-authentication using the Last four Digits.
-
-### options
-
-The module accepts options as objects of key-value.
-
-## payload
-
-Request Body
-
-### *lastFourDigits*
-
-This is the last 4 digits
-
-### *accountNumber*
-
-This is the customer account number
-
-## fcmb.Authenticate.Last4Digits(credentials)
-
-In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
-
+##
 ```javascript
-fcmb.Authenticate.Last4Digits({
-    sandbox_key: "Your sandbox key",
+fcmb.Payments.B2btransfers({
+   sandbox_key: "Your sandbox key",
     client_id: "Your 'x-ibm-client-id' || f",
     accept: "application/json",
     "content-type": "application/json",
     payload: {
-        lastFourDigits: "Customer Last 4 digits || '1234'",
-        accountNumber: "Customer Account Number || '0123456789'"
-    },
-    host: "Your host url || null"
-}).then(res => {
-    //do something
-});
+          nameEnquiryRef: "999214190218121217000001177403",
+          "destinationInstitutionCode": "999063",
+          "channelCode": "2",
+          "beneficiaryAccountNumber": "0000000000",
+          "beneficiaryAccountName": "OBIOHA O. GODDY",
+          "beneficiaryBankVerificationNumber": "1",
+          "beneficiaryKYCLevel": "3",
+          "originatorAccountName": "OKUBOTE IDOWU OLUWAKEMI",
+          "originatorAccountNumber": "0000000000",
+          "transactionNarration": "Esb Test",
+          "paymentReference": "12345",
+          "amount": "100.1",
+          "traceId": "12345",
+          "chargeAmount": "52.59",
+          "platformType": "ESB"
+}
+})
 ```
-___
-
-## *Authenticate ATM Pin([options])*
-
-authentication using ATM PIN.
-
-### options
-
-The module accepts options as objects of key-value.
-
-## payload
-
-Request Body
-
-### *pan*
-
-This is the customer PAN number
-
-### *atmPin*
-
-This is the customer ATM Pin
-
-### *accountNumber*
-
-This is the customer account number
-
-### *expiryDate*
-
-This is the expirey date of the customer ATM card
-
-## fcmb.Authenticate.AtmPIN(credentials)
-
-In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
-
-```javascript
-fcmb.Authenticate.AtmPIN({
-    sandbox_key: "Your sandbox key",
-    client_id: "Your 'x-ibm-client-id' || f",
-    accept: "application/json",
-    "content-type": "application/json",
-    payload: {
-        pan: "Customer PAN Number || 'Tcx+B7109UY+sSooND8ZrFm4OMuFzMF6dzHQ5lbt9r8='",
-        atmPin: "Customer PAN Number || 'C1cRxRUSRkArWinTxk27pw=='",
-        accountNumber: "Customer PAN Number || '1715308017'",
-        expiryDate: "Customer PAN Number || '2023'"
-    },
-    host: "Your host url || null"
-}).then(res => {
-    //do something
-});
-```
-___
-
-## *Card Type([options])*
-
-Insert a crad type.
-
-### options
-
-The module accepts options as objects of key-value.
-
-## payload
-
-Request Body
-
-### *cardName*
-
-This is the card name to be inserted
-
-## fcmb.Authenticate.Last4Digits(credentials)
-
-In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
-
-```javascript
-fcmb.Cards.CardType({
-    sandbox_key: "Your sandbox key",
-    client_id: "Your 'x-ibm-client-id' || f",
-    accept: "application/json",
-    "content-type": "application/json",
-    payload: {
-        cardName: "Card Name To Be Inserted || 'Aiden Walker'"
-    },
-    host: "Your host url || null"
-}).then(res => {
-    //do something
-});
-```
-___
-
-## *Card Type([options])*
-
-Retrieve Card Types.
-
-### options
-
-The module accepts options as objects of key-value.
-
-## fcmb.Authenticate.Last4Digits(credentials)
-
-In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
-
-```javascript
-fcmb.Cards.RetrieveCardType({
-    sandbox_key: "Your sandbox key",
-    client_id: "Your 'x-ibm-client-id' || f",
-    accept: "application/json",
-    "content-type": "application/json",
-    host: "Your host url || null"
-}).then(res => {
-    //do something
-});
-```
-___
-
-## *Card Type([options])*
-
-Update a crad type.
-
-### options
-
-The module accepts options as objects of key-value.
-
-## payload
-
-Request Body
-
-### *id*
-
-This is the card id to be updated
-
-### *cardName*
-
-This is the card name to be updated with
-
-## fcmb.Authenticate.Last4Digits(credentials)
-
-In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
-
-```javascript
-fcmb.Cards.UpdateCardType({
-    sandbox_key: "Your sandbox key",
-    client_id: "Your 'x-ibm-client-id' || f",
-    accept: "application/json",
-    "content-type": "application/json",
-    payload: {
-        id: "Card Id To Be Updated || 82894591",
-        cardName: "Card Name To Be Updated with || 'Aiden Walker'"
-    },
-    host: "Your host url || null"
-}).then(res => {
-    //do something
-});
-```
-___
-
-## *Card Request([options])*
-
-create a card request.
-
-### options
-
-The module accepts options as objects of key-value.
-
-## payload
-
-Request Body
-
-### *reasonRequestId*
-
-### *cardProductId*
-
-### *deliveryTypeId*
-
-### *accountNumber*
-
-This is the account number of the card requested
-
-### *accountName*
-
-This is the account name of the card requested
-
-### *branchSOL*
-
-## fcmb.Authenticate.Last4Digits(credentials)
-
-In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
-
-```javascript
-fcmb.Cards.CardRequest({
-    sandbox_key: "Your sandbox key",
-    client_id: "Your 'x-ibm-client-id' || f",
-    accept: "application/json",
-    "content-type": "application/json",
-    payload: {
-        reasonRequestId: "Request Id || 68937438",
-        cardProductId: "Product Id || 72259952",
-        deliveryTypeId: "Type Id || 18830384",
-        accountNumber: "Card Account Number || '6378554997622631'",
-        accountName: "Card Account Name || '6304121005834258'",
-        branchSOL: "Card Name To Be Inserted || 'feszu'"
-    },
-    host: "Your host url || null"
-}).then(res => {
-    //do something
-});
-```
-___
-
-## *Card Request([options])*
-
-Retrieve Card Requests.
-
-### options
-
-The module accepts options as objects of key-value.
-
-## fcmb.Authenticate.Last4Digits(credentials)
-
-In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
-
-```javascript
-fcmb.Cards.RetrieveCardRequest({
-    sandbox_key: "Your sandbox key",
-    client_id: "Your 'x-ibm-client-id' || f",
-    accept: "application/json",
-    "content-type": "application/json",
-    host: "Your host url || null"
-}).then(res => {
-    //do something
-});
-```
-___
