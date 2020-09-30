@@ -158,7 +158,7 @@ sterling.Account.InterbankTransferReq({
   sandbox_key: "Your sandbox key",
   payload: {
     Referenceid: "Your Transaction ID || 0101",
-    RequestType: "Transaction Type || 0101",
+    RequestType: "Transaction Type || 01",
     Translocation: "Transaction Location Longitude Latitude || 0101",
     ToAccount: "Transaction Recipient Account || 01",
     Destinationbankcode: "Destination Bank Code || 01",
