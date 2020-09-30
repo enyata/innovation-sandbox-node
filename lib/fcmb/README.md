@@ -113,6 +113,7 @@ This is the customer account number
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
+##
 ```javascript
 fcmb.Authenticate.Last4Digits({
     sandbox_key: "Your sandbox key",
