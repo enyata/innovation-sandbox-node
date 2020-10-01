@@ -180,3 +180,183 @@ fcmb.Authenticate.AtmPIN({
 });
 ```
 ___
+
+## *Card Type([options])*
+
+Insert a crad type.
+
+### options
+
+The module accepts options as objects of key-value.
+
+## payload
+
+Request Body
+
+### *cardName*
+
+This is the card name to be inserted
+
+## fcmb.Authenticate.Last4Digits(credentials)
+
+In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
+
+```javascript
+fcmb.Cards.CardType({
+    sandbox_key: "Your sandbox key",
+    client_id: "Your 'x-ibm-client-id' || f",
+    accept: "application/json",
+    "content-type": "application/json",
+    payload: {
+        cardName: "Card Name To Be Inserted || 'Aiden Walker'"
+    },
+    host: "Your host url || null"
+}).then(res => {
+    //do something
+});
+```
+___
+
+## *Card Type([options])*
+
+Retrieve Card Types.
+
+### options
+
+The module accepts options as objects of key-value.
+
+## fcmb.Authenticate.Last4Digits(credentials)
+
+In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
+
+```javascript
+fcmb.Cards.RetrieveCardType({
+    sandbox_key: "Your sandbox key",
+    client_id: "Your 'x-ibm-client-id' || f",
+    accept: "application/json",
+    "content-type": "application/json",
+    host: "Your host url || null"
+}).then(res => {
+    //do something
+});
+```
+___
+
+## *Card Type([options])*
+
+Update a crad type.
+
+### options
+
+The module accepts options as objects of key-value.
+
+## payload
+
+Request Body
+
+### *id*
+
+This is the card id to be updated
+
+### *cardName*
+
+This is the card name to be updated with
+
+## fcmb.Authenticate.Last4Digits(credentials)
+
+In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
+
+```javascript
+fcmb.Cards.UpdateCardType({
+    sandbox_key: "Your sandbox key",
+    client_id: "Your 'x-ibm-client-id' || f",
+    accept: "application/json",
+    "content-type": "application/json",
+    payload: {
+        id: "Card Id To Be Updated || 82894591",
+        cardName: "Card Name To Be Updated with || 'Aiden Walker'"
+    },
+    host: "Your host url || null"
+}).then(res => {
+    //do something
+});
+```
+___
+
+## *Card Request([options])*
+
+create a card request.
+
+### options
+
+The module accepts options as objects of key-value.
+
+## payload
+
+Request Body
+
+### *reasonRequestId*
+
+### *cardProductId*
+
+### *deliveryTypeId*
+
+### *accountNumber*
+
+This is the account number of the card requested
+
+### *accountName*
+
+This is the account name of the card requested
+
+### *branchSOL*
+
+## fcmb.Authenticate.Last4Digits(credentials)
+
+In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
+
+```javascript
+fcmb.Cards.CardRequest({
+    sandbox_key: "Your sandbox key",
+    client_id: "Your 'x-ibm-client-id' || f",
+    accept: "application/json",
+    "content-type": "application/json",
+    payload: {
+        reasonRequestId: "Request Id || 68937438",
+        cardProductId: "Product Id || 72259952",
+        deliveryTypeId: "Type Id || 18830384",
+        accountNumber: "Card Account Number || '6378554997622631'",
+        accountName: "Card Account Name || '6304121005834258'",
+        branchSOL: "Card Name To Be Inserted || 'feszu'"
+    },
+    host: "Your host url || null"
+}).then(res => {
+    //do something
+});
+```
+___
+
+## *Card Request([options])*
+
+Retrieve Card Requests.
+
+### options
+
+The module accepts options as objects of key-value.
+
+## fcmb.Authenticate.Last4Digits(credentials)
+
+In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
+
+```javascript
+fcmb.Cards.RetrieveCardRequest({
+    sandbox_key: "Your sandbox key",
+    client_id: "Your 'x-ibm-client-id' || f",
+    accept: "application/json",
+    "content-type": "application/json",
+    host: "Your host url || null"
+}).then(res => {
+    //do something
+});
+```
+___
