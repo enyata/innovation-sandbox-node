@@ -38,6 +38,13 @@ exports.data = {
             representativeEmail: faker.random.alphaNumeric(),
         },
     },
+
+    KycStatus: {
+        payload: {
+            customerId: faker.random.alphaNumeric(),
+            status: faker.random.alphaNumeric(),
+        },
+    },
 };
 
 exports.responseOne = {
