@@ -40,9 +40,9 @@ This is mostly default to application/json except otherwise stated. It is used i
 
 It is used in the header. What it takes varies by API.
 
-__________________________________________
+___
 
-## Validate Customer By Id([options])
+## *Validate Customer By Id([options])*
 
 Validation using the customer id.
 
@@ -54,17 +54,17 @@ The module accepts options as objects of key-value.
 
 Request Body
 
-### tokenCode
+### *tokenCode*
 
 This is a token code
 
-### customerId
+### *customerId*
 
 This is the Id of the customer
 
-### appId
+### *appId*
 
-### appToken
+### *appToken*
 
 ## fcmb.Authentication.ValidateByCustomerId(credentials)
 
@@ -87,7 +87,7 @@ fcmb.Authentication.ValidateByCustomerId({
     //do something
 });
 ```
-_______________________________
+___
 
 ## *Authenticate last 4 Digits([options])*
 
@@ -113,7 +113,6 @@ This is the customer account number
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
-##
 ```javascript
 fcmb.Authenticate.Last4Digits({
     sandbox_key: "Your sandbox key",
