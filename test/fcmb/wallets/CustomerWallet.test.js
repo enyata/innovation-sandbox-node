@@ -1,8 +1,8 @@
 const chai = require('chai');
 const nock = require('nock');
 
-const CustomerWallet = require('../../../lib/fcmb/wallets/Customer-wallet');
-const CustomerWalletMock = require('../../mock/fcmb/wallets/Customer-wallet');
+const CustomerWallet = require('../../../lib/fcmb/wallets/CustomerWallet');
+const CustomerWalletMock = require('../../mock/fcmb/wallets/CustomerWallet');
 
 const { data } = CustomerWalletMock;
 const scope = nock(data.host);
