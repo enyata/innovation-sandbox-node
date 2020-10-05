@@ -1293,7 +1293,7 @@ Query Params
 
 Validating Code
 
-## fcmb.Wallets.CustomerWallet.retrieveWalletBalance(credentials)
+## fcmb.Wallets.CustomerWallet.validateWalletCode(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
