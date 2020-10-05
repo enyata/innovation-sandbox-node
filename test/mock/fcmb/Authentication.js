@@ -4,7 +4,7 @@ exports.data = {
     sandbox_key: faker.random.alphaNumeric(),
     host: faker.internet.url(),
     client_id: 'f',
-    ValidateByCustomerId: {
+    validateByCustomerId: {
         payload: {
             tokenCode: faker.random.alphaNumeric(100),
             customerId: faker.random.alphaNumeric(10),
@@ -16,7 +16,7 @@ exports.data = {
     },
 };
 
-exports.ValidateByCustomerId = {
+exports.validateByCustomerId = {
     data: {
         responseData: {
             response: 'OK',

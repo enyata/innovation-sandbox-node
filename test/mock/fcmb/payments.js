@@ -4,7 +4,7 @@ exports.data = {
     sandbox_key: faker.random.alphaNumeric(),
     host: faker.internet.url(),
     client_id: 'f',
-    B2btransfers: {
+    b2bSingleTransfer: {
         payload: {
             nameEnquiryRef: faker.random.alphaNumeric(),
             destinationInstitutionCode: faker.random.alphaNumeric(),
@@ -25,7 +25,7 @@ exports.data = {
         accept: 'application/json',
         'content-type': 'application/json',
     },
-    B2binternaltransfers: {
+    internalB2BSingleTransfer: {
         payload: {
             debitAccountNo: faker.random.alphaNumeric(),
             creditAccountNo: faker.random.alphaNumeric(),
@@ -35,7 +35,7 @@ exports.data = {
             reportCode: faker.random.alphaNumeric(),
         },
     },
-    Internaltransfers: {
+    createInternalTransfer: {
         payload: {
 
             sourceAccount: faker.random.alphaNumeric(),
@@ -57,13 +57,13 @@ exports.data = {
         },
     },
 
-    RetrieveInternaltransfers: {
+    getInternalTransfer: {
         params: {
             accoutNumber: faker.random.number(),
         },
     },
 
-    InternaltransfersDateRange: {
+    internalTransferDateRange: {
         params: {
             startDate: faker.random.alphaNumeric(),
             endDate: faker.random.alphaNumeric(),
@@ -72,13 +72,13 @@ exports.data = {
         },
     },
 
-    InternaltransfersStatus: {
+    internalTransferStatus: {
         params: {
             stan: faker.random.alphaNumeric(),
         },
     },
 
-    Niptransfers: {
+    nipSingleFundsTransfer: {
         payload: {
             nameEnquiryRef: faker.random.alphaNumeric(),
             destinationInstitutionCode: faker.random.alphaNumeric(),
@@ -100,7 +100,7 @@ exports.data = {
         'content-type': 'application/json',
     },
 
-    NiptransfersDateRange: {
+    nipTransferDateRange: {
         params: {
             startDate: faker.random.alphaNumeric(),
             endDate: faker.random.alphaNumeric(),
@@ -109,15 +109,15 @@ exports.data = {
         },
     },
 
-    Nipcharge: {
+    insertNIPCharge: {
         payload: {
             amount: faker.random.number(),
         },
     },
 
-    Nipbanks: {},
+    getNIPBanks: {},
 
-    Nipname: {
+    nipNameEnquiry: {
         payload: {
             destinationInstitutionCode: faker.random.alphaNumeric(),
             channelCode: faker.random.alphaNumeric(),
@@ -127,7 +127,7 @@ exports.data = {
         'content-type': 'application/json',
     },
 
-    NipStatus: {
+    nipTransferStatus: {
         params: {
             traceid: faker.random.alphaNumeric(),
         },
@@ -135,7 +135,7 @@ exports.data = {
         'content-type': 'application/json',
     },
 
-    Nibssstatus: {
+    nibssPaymentStatus: {
         payload: {
             ScheduleId: faker.random.alphaNumeric(),
             ClientId: faker.random.alphaNumeric(),

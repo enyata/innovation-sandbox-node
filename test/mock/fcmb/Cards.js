@@ -4,18 +4,18 @@ exports.data = {
     sandbox_key: faker.random.alphaNumeric(),
     host: faker.internet.url(),
     client_id: 'f',
-    CardType: {
+    insertCardType: {
         payload: {
             cardName: `${faker.name.firstName() + faker.name.lastName()}`,
         },
         accept: 'application/json',
         'content-type': 'application/json',
     },
-    RetrieveCardType: {
+    retrieveCardType: {
         accept: 'application/json',
         'content-type': 'application/json',
     },
-    UpdateCardType: {
+    updateCardType: {
         payload: {
             id: faker.random.number(20),
             cardName: `${faker.name.firstName() + faker.name.lastName()}`,
@@ -23,7 +23,7 @@ exports.data = {
         accept: 'application/json',
         'content-type': 'application/json',
     },
-    CardRequest: {
+    createCardRequest: {
         payload: {
             reasonRequestId: faker.random.number(20),
             cardProductId: faker.random.number(20),
@@ -35,7 +35,7 @@ exports.data = {
         accept: 'application/json',
         'content-type': 'application/json',
     },
-    RetrieveCardRequest: {
+    retrieveCardRequest: {
         accept: 'application/json',
         'content-type': 'application/json',
     },

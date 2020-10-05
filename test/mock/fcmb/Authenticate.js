@@ -4,7 +4,7 @@ exports.data = {
     sandbox_key: faker.random.alphaNumeric(),
     host: faker.internet.url(),
     client_id: 'f',
-    Last4Digits: {
+    validateByLast4Digit: {
         payload: {
             lastFourDigits: `${faker.random.number(4)}`,
             accountNumber: `${faker.random.number(10)}`,
@@ -12,7 +12,7 @@ exports.data = {
         accept: 'application/json',
         'content-type': 'application/json',
     },
-    AtmPIN: {
+    validateByAtmPin: {
         payload: {
             pan: faker.random.alphaNumeric(20),
             atmPin: `${faker.random.number(4)}`,

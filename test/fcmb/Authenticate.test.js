@@ -13,12 +13,12 @@ const { sandbox_key, host, client_id } = data;
 describe('FCMB Authenticate', () => {
     it('Should return successful authentication of last 4 digits', async() => {
         scope
-            .post('/fcmb/authenticate/Last4Digits', data.Last4Digits.payload)
+            .post('/fcmb/authenticate/Last4Digits', data.validateByLast4Digit.payload)
             .reply(200, AuthenticatetMock.ResponseOne);
 
-        const validate = await Authenticate.Last4Digits({
+        const validate = await Authenticate.validateByLast4Digit({
             sandbox_key,
-            payload: data.Last4Digits.payload,
+            payload: data.validateByLast4Digit.payload,
             host,
             client_id,
         });
@@ -32,12 +32,12 @@ describe('FCMB Authenticate', () => {
 
     it('Should return successful authentication of customer atm Pin', async() => {
         scope
-            .post('/fcmb/authenticate/AtmPIN', data.AtmPIN.payload)
+            .post('/fcmb/authenticate/AtmPIN', data.validateByAtmPin.payload)
             .reply(200, AuthenticatetMock.ResponseOne);
 
-        const validate = await Authenticate.AtmPIN({
+        const validate = await Authenticate.validateByAtmPin({
             sandbox_key,
-            payload: data.AtmPIN.payload,
+            payload: data.validateByAtmPin.payload,
             host,
             client_id,
         });

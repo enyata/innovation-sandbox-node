@@ -5,19 +5,19 @@ exports.data = {
     host: faker.internet.url(),
     client_id: 'f',
 
-    AccountNumber: {
+    getTransactionHistory: {
         params: {
             internalAccountNumber: faker.random.alphaNumeric(),
         },
     },
 
-    Id: {
+    retrieveWalletTransactionDetails: {
         params: {
             tranCategoryId: faker.random.alphaNumeric(),
         },
     },
 
-    W2Account: {
+    wallet2AccountTransfer: {
         payload: {
             transactionChannel: faker.random.alphaNumeric(),
             sourcePhone: faker.random.alphaNumeric(),
@@ -40,13 +40,13 @@ exports.data = {
         },
     },
 
-    BalanceEnqiry: {
+    balanceEnquiry: {
         params: {
             schemeCode: faker.random.alphaNumeric(),
         },
     },
 
-    BankLink: {
+    createBankLink: {
         payload: {
             customerId: faker.random.alphaNumeric(),
             bankCode: faker.random.alphaNumeric(),
@@ -56,13 +56,13 @@ exports.data = {
         },
     },
 
-    Dataplan: {
+    getDataPlan: {
         params: {
             anyString: `${faker.random.number()}`,
         },
     },
 
-    Airtime: {
+    airtimeTopUp: {
         payload: {
             amount: faker.random.alphaNumeric(),
             requestId: faker.random.alphaNumeric(),
@@ -75,7 +75,7 @@ exports.data = {
         },
     },
 
-    Data: {
+    transferData: {
         payload: {
             paymentId: faker.random.alphaNumeric(),
             requestId: faker.random.alphaNumeric(),

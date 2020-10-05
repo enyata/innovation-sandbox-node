@@ -4,13 +4,13 @@ exports.data = {
     sandbox_key: faker.random.alphaNumeric(),
     host: faker.internet.url(),
     client_id: 'f',
-    GetBalance: {
+    retrieveWalletBalance: {
         params: {
             AccountNumber: faker.random.alphaNumeric(),
         },
     },
 
-    Balance: {
+    updateWalletBalance: {
         payload: {
             availableBalance: faker.random.number(),
             bookBalance: faker.random.number(),
@@ -20,7 +20,7 @@ exports.data = {
         },
     },
 
-    Create: {
+    createWallet: {
         payload: {
             customerId: faker.random.alphaNumeric(),
             schemeCode: faker.random.alphaNumeric(),
@@ -30,7 +30,7 @@ exports.data = {
         },
     },
 
-    Customerwallet: {
+    updateWalletStatus: {
         payload: {
             internalAccountNumber: faker.random.alphaNumeric(),
             status: true,
@@ -38,7 +38,7 @@ exports.data = {
         },
     },
 
-    ValidateCode: {
+    validateWalletCode: {
         params: {
             code: faker.random.alphaNumeric(),
         },

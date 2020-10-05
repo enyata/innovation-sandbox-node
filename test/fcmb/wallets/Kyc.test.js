@@ -16,7 +16,7 @@ describe('KYC', () => {
             .get('/fcmb/wallet/KYC')
             .reply(200, KycMock.responseTwo);
 
-        const validate = await Kyc.GetKyc({
+        const validate = await Kyc.getCustomerKYC({
             sandbox_key,
             host,
             client_id,
@@ -34,7 +34,7 @@ describe('KYC', () => {
             .get('/fcmb/wallet/KYC')
             .reply(200, KycMock.responseTwo);
 
-        const validate = await Kyc.GetKyc({
+        const validate = await Kyc.getCustomerKYC({
             sandbox_key,
             host,
             client_id,
@@ -49,12 +49,12 @@ describe('KYC', () => {
 
     it('should create Customer KYC', async() => {
         scope
-            .post('/fcmb/wallet/KYC', data.CreateKyc.payload)
+            .post('/fcmb/wallet/KYC', data.createCustomerKYC.payload)
             .reply(200, KycMock.responseTwo);
 
-        const validate = await Kyc.CreateKyc({
+        const validate = await Kyc.createCustomerKYC({
             sandbox_key,
-            payload: data.CreateKyc.payload,
+            payload: data.createCustomerKYC.payload,
             host,
             client_id,
         });
@@ -68,12 +68,12 @@ describe('KYC', () => {
 
     it('should update Customer KYC', async() => {
         scope
-            .put('/fcmb/wallet/KYC', data.UpdateKyc.payload)
+            .put('/fcmb/wallet/KYC', data.updateCustomerKYC.payload)
             .reply(200, KycMock.responseTwo);
 
-        const validate = await Kyc.UpdateKyc({
+        const validate = await Kyc.updateCustomerKYC({
             sandbox_key,
-            payload: data.UpdateKyc.payload,
+            payload: data.updateCustomerKYC.payload,
             host,
             client_id,
         });
@@ -87,12 +87,12 @@ describe('KYC', () => {
 
     it('should update customer kyc status', async() => {
         scope
-            .put('/fcmb/wallet/KYC/Status', data.KycStatus.payload)
+            .put('/fcmb/wallet/KYC/Status', data.updateKYCStatus.payload)
             .reply(200, KycMock.responseTwo);
 
-        const validate = await Kyc.KycStatus({
+        const validate = await Kyc.updateKYCStatus({
             sandbox_key,
-            payload: data.KycStatus.payload,
+            payload: data.updateKYCStatus.payload,
             host,
             client_id,
         });

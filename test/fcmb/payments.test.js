@@ -13,12 +13,12 @@ const { sandbox_key, host, client_id } = data;
 describe('Payment', () => {
     it('should make payment via bank to bank transfer', async() => {
         scope
-            .post('/fcmb/payments/b2b/transfers', data.B2btransfers.payload)
+            .post('/fcmb/payments/b2b/transfers', data.b2bSingleTransfer.payload)
             .reply(200, PaymentMock.responseOne);
 
-        const validate = await Payments.B2btransfers({
+        const validate = await Payments.b2bSingleTransfer({
             sandbox_key,
-            payload: data.B2btransfers.payload,
+            payload: data.b2bSingleTransfer.payload,
             host,
             client_id,
         });
@@ -33,12 +33,12 @@ describe('Payment', () => {
 
     it('should make payment via bank to bank internal transfer', async() => {
         scope
-            .post('/fcmb/payments/b2b/internal/transfers', data.B2binternaltransfers.payload)
+            .post('/fcmb/payments/b2b/internal/transfers', data.internalB2BSingleTransfer.payload)
             .reply(200, PaymentMock.responseTwo);
 
-        const validate = await Payments.B2binternaltransfers({
+        const validate = await Payments.internalB2BSingleTransfer({
             sandbox_key,
-            payload: data.B2binternaltransfers.payload,
+            payload: data.internalB2BSingleTransfer.payload,
             host,
             client_id,
         });
@@ -52,13 +52,13 @@ describe('Payment', () => {
 
     it('should make internal transfer', async() => {
         scope
-            .post('/fcmb/payments/internal/transfers', data.Internaltransfers.payload)
+            .post('/fcmb/payments/internal/transfers', data.createInternalTransfer.payload)
             .reply(200, PaymentMock.responseTwo);
 
 
-        const validate = await Payments.Internaltransfers({
+        const validate = await Payments.createInternalTransfer({
             sandbox_key,
-            payload: data.Internaltransfers.payload,
+            payload: data.createInternalTransfer.payload,
             host,
             client_id,
         });
@@ -73,12 +73,12 @@ describe('Payment', () => {
     it('should retrieve internal transfers', async() => {
         scope
             .get('/fcmb/payments/internal/transfers')
-            .query(data.RetrieveInternaltransfers.params)
+            .query(data.getInternalTransfer.params)
             .reply(200, PaymentMock.responseTwo);
 
-        const validate = await Payments.RetrieveInternaltransfers({
+        const validate = await Payments.getInternalTransfer({
             sandbox_key,
-            params: data.RetrieveInternaltransfers.params,
+            params: data.getInternalTransfer.params,
             host,
             client_id,
         });
@@ -93,12 +93,12 @@ describe('Payment', () => {
     it('should retrieve intrenal transfer between date range', async() => {
         scope
             .get('/fcmb/payments/internal/transfers/DateRange')
-            .query(data.InternaltransfersDateRange.params)
+            .query(data.internalTransferDateRange.params)
             .reply(200, PaymentMock.responseOne);
 
-        const validate = await Payments.InternaltransfersDateRange({
+        const validate = await Payments.internalTransferDateRange({
             sandbox_key,
-            params: data.InternaltransfersDateRange.params,
+            params: data.internalTransferDateRange.params,
             host,
             client_id,
         });
@@ -112,12 +112,12 @@ describe('Payment', () => {
     it('should return internal transfer status', async() => {
         scope
             .get('/fcmb/payments/internal/transfers/Status')
-            .query(data.InternaltransfersStatus.params)
+            .query(data.internalTransferStatus.params)
             .reply(200, PaymentMock.responseOne);
 
-        const validate = await Payments.InternaltransfersStatus({
+        const validate = await Payments.internalTransferStatus({
             sandbox_key,
-            params: data.InternaltransfersStatus.params,
+            params: data.internalTransferStatus.params,
             host,
             client_id,
         });
@@ -131,12 +131,12 @@ describe('Payment', () => {
 
     it('sholud Insert a nipSingleFundsTransfer', async() => {
         scope
-            .post('/fcmb/payments/nip/transfers', data.Niptransfers.payload)
+            .post('/fcmb/payments/nip/transfers', data.nipSingleFundsTransfer.payload)
             .reply(200, PaymentMock.responseOne);
 
-        const validate = await Payments.Niptransfers({
+        const validate = await Payments.nipSingleFundsTransfer({
             sandbox_key,
-            payload: data.Niptransfers.payload,
+            payload: data.nipSingleFundsTransfer.payload,
             host,
             client_id,
         });
@@ -150,12 +150,12 @@ describe('Payment', () => {
     it('should return internal transfer within date range', async() => {
         scope
             .get('/fcmb/payments/nip/transfers/DateRange')
-            .query(data.NiptransfersDateRange.params)
+            .query(data.nipTransferDateRange.params)
             .reply(200, PaymentMock.responseOne);
 
-        const validate = await Payments.NiptransfersDateRange({
+        const validate = await Payments.nipTransferDateRange({
             sandbox_key,
-            params: data.NiptransfersDateRange.params,
+            params: data.nipTransferDateRange.params,
             host,
             client_id,
         });
@@ -169,12 +169,12 @@ describe('Payment', () => {
 
     it('should insert nip charge', async() => {
         scope
-            .post('/fcmb/payments/nip/charge', data.Nipcharge.payload)
+            .post('/fcmb/payments/nip/charge', data.insertNIPCharge.payload)
             .reply(200, PaymentMock.responseOne);
 
-        const validate = await Payments.Nipcharge({
+        const validate = await Payments.insertNIPCharge({
             sandbox_key,
-            payload: data.Nipcharge.payload,
+            payload: data.insertNIPCharge.payload,
             host,
             client_id,
         });
@@ -191,7 +191,7 @@ describe('Payment', () => {
             .get('/fcmb/payments/nip/banks')
             .reply(200, PaymentMock.responseTwo);
 
-        const validate = await Payments.Nipbanks({
+        const validate = await Payments.getNIPBanks({
             sandbox_key,
             host,
             client_id,
@@ -206,12 +206,12 @@ describe('Payment', () => {
 
     it('should Insert a nipNameEnquiry', async() => {
         scope
-            .post('/fcmb/payments/nip/name', data.Nipname.payload)
+            .post('/fcmb/payments/nip/name', data.nipNameEnquiry.payload)
             .reply(200, PaymentMock.responseOne);
 
-        const validate = await Payments.Nipname({
+        const validate = await Payments.nipNameEnquiry({
             sandbox_key,
-            payload: data.Nipname.payload,
+            payload: data.nipNameEnquiry.payload,
             host,
             client_id,
         });
@@ -226,12 +226,12 @@ describe('Payment', () => {
     it('should Get details of a specific transfer', async() => {
         scope
             .get('/fcmb/payments/nip/Status')
-            .query(data.NipStatus.params)
+            .query(data.nipTransferStatus.params)
             .reply(200, PaymentMock.responseOne);
 
-        const validate = await Payments.NipStatus({
+        const validate = await Payments.nipTransferStatus({
             sandbox_key,
-            params: data.NipStatus.params,
+            params: data.nipTransferStatus.params,
             host,
             client_id,
         });
@@ -245,12 +245,12 @@ describe('Payment', () => {
 
     it('should Check status of current payment being processed', async() => {
         scope
-            .post('/fcmb/payments/nibss/status', data.Nibssstatus.payload)
+            .post('/fcmb/payments/nibss/status', data.nibssPaymentStatus.payload)
             .reply(200, PaymentMock.responseOne);
 
-        const validate = await Payments.Nibssstatus({
+        const validate = await Payments.nibssPaymentStatus({
             sandbox_key,
-            payload: data.Nibssstatus.payload,
+            payload: data.nibssPaymentStatus.payload,
             host,
             client_id,
         });

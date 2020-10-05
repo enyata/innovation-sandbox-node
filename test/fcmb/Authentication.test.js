@@ -13,12 +13,12 @@ const { sandbox_key, host, client_id } = data;
 describe('FCMB Authentication', () => {
     it('Should return successful validate by customer Id', async() => {
         scope
-            .post('/fcmb/authentication/validateByCustomerId', data.ValidateByCustomerId.payload)
-            .reply(200, AuthenticationtMock.ValidateByCustomerId);
+            .post('/fcmb/authentication/validateByCustomerId', data.validateByCustomerId.payload)
+            .reply(200, AuthenticationtMock.validateByCustomerId);
 
-        const validate = await Authentication.ValidateByCustomerId({
+        const validate = await Authentication.validateByCustomerId({
             sandbox_key,
-            payload: data.ValidateByCustomerId.payload,
+            payload: data.validateByCustomerId.payload,
             host,
             client_id,
         });

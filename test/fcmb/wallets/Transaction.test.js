@@ -15,12 +15,12 @@ describe('Transaction', () => {
     it('should get Transaction History By AccountNumber', async() => {
         scope
             .get('/fcmb/wallet/Transaction/AccountNumber')
-            .query(data.AccountNumber.params)
+            .query(data.getTransactionHistory.params)
             .reply(200, TransactionMock.responseTwo);
 
-        const validate = await Transaction.AccountNumber({
+        const validate = await Transaction.getTransactionHistory({
             sandbox_key,
-            params: data.AccountNumber.params,
+            params: data.getTransactionHistory.params,
             host,
             client_id,
         });
@@ -35,12 +35,12 @@ describe('Transaction', () => {
     it('should allows a wallet customer to retrieve details of a category of wallet transactions.', async() => {
         scope
             .get('/fcmb/wallet/Transaction/Category/Id')
-            .query(data.Id.params)
+            .query(data.retrieveWalletTransactionDetails.params)
             .reply(200, TransactionMock.responseTwo);
 
-        const validate = await Transaction.Id({
+        const validate = await Transaction.retrieveWalletTransactionDetails({
             sandbox_key,
-            params: data.Id.params,
+            params: data.retrieveWalletTransactionDetails.params,
             host,
             client_id,
         });
@@ -54,12 +54,12 @@ describe('Transaction', () => {
 
     it('should Transfer from a wallet to an account', async() => {
         scope
-            .post('/fcmb/wallet/Transfer/W2Account', data.W2Account.payload)
+            .post('/fcmb/wallet/Transfer/W2Account', data.wallet2AccountTransfer.payload)
             .reply(200, TransactionMock.responseTwo);
 
-        const validate = await Transaction.W2Account({
+        const validate = await Transaction.wallet2AccountTransfer({
             sandbox_key,
-            payload: data.W2Account.payload,
+            payload: data.wallet2AccountTransfer.payload,
             host,
             client_id,
         });
@@ -74,12 +74,12 @@ describe('Transaction', () => {
     it('should get Balance Enquiry', async() => {
         scope
             .get('/fcmb/wallet/balanceEnqiry')
-            .query(data.BalanceEnqiry.params)
+            .query(data.balanceEnquiry.params)
             .reply(200, TransactionMock.responseTwo);
 
-        const validate = await Transaction.BalanceEnqiry({
+        const validate = await Transaction.balanceEnquiry({
             sandbox_key,
-            params: data.BalanceEnqiry.params,
+            params: data.balanceEnquiry.params,
             host,
             client_id,
         });
@@ -93,12 +93,12 @@ describe('Transaction', () => {
 
     it('should Create Customer BankLink', async() => {
         scope
-            .post('/fcmb/wallet/BankLink', data.BankLink.payload)
+            .post('/fcmb/wallet/BankLink', data.createBankLink.payload)
             .reply(200, TransactionMock.responseTwo);
 
-        const validate = await Transaction.BankLink({
+        const validate = await Transaction.createBankLink({
             sandbox_key,
-            payload: data.BankLink.payload,
+            payload: data.createBankLink.payload,
             host,
             client_id,
         });
@@ -113,12 +113,12 @@ describe('Transaction', () => {
     it('should Get Data Plan', async() => {
         scope
             .get('/fcmb/wallet/Transfer/Dataplan')
-            .query(data.Dataplan.params)
+            .query(data.getDataPlan.params)
             .reply(200, TransactionMock.responseTwo);
 
-        const validate = await Transaction.Dataplan({
+        const validate = await Transaction.getDataPlan({
             sandbox_key,
-            params: data.Dataplan.params,
+            params: data.getDataPlan.params,
             host,
             client_id,
         });
@@ -132,12 +132,12 @@ describe('Transaction', () => {
 
     it('Airtime Top-Up', async() => {
         scope
-            .post('/fcmb/wallet/Transfer/Airtime', data.Airtime.payload)
+            .post('/fcmb/wallet/Transfer/Airtime', data.airtimeTopUp.payload)
             .reply(200, TransactionMock.responseTwo);
 
-        const validate = await Transaction.Airtime({
+        const validate = await Transaction.airtimeTopUp({
             sandbox_key,
-            payload: data.Airtime.payload,
+            payload: data.airtimeTopUp.payload,
             host,
             client_id,
         });
@@ -151,12 +151,12 @@ describe('Transaction', () => {
 
     it('should Create Customer BankLink', async() => {
         scope
-            .post('/fcmb/wallet/Transfer/Data', data.Data.payload)
+            .post('/fcmb/wallet/Transfer/Data', data.transferData.payload)
             .reply(200, TransactionMock.responseTwo);
 
-        const validate = await Transaction.Data({
+        const validate = await Transaction.transferData({
             sandbox_key,
-            payload: data.Data.payload,
+            payload: data.transferData.payload,
             host,
             client_id,
         });

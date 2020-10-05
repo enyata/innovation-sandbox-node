@@ -14,12 +14,12 @@ describe('Balance', () => {
     it('Should get balance', async() => {
         scope
             .get('/fcmb/wallet/Customerwallet/Balance')
-            .query(data.GetBalance.params)
+            .query(data.retrieveWalletBalance.params)
             .reply(200, CustomerWalletMock.responseTwo);
 
-        const validate = await CustomerWallet.GetBalance({
+        const validate = await CustomerWallet.retrieveWalletBalance({
             sandbox_key,
-            params: data.GetBalance.params,
+            params: data.retrieveWalletBalance.params,
             host,
             client_id,
         });
@@ -33,12 +33,12 @@ describe('Balance', () => {
 
     it('should update balance', async() => {
         scope
-            .put('/fcmb/wallet/Customerwallet/Balance', data.Balance.payload)
+            .put('/fcmb/wallet/Customerwallet/Balance', data.updateWalletBalance.payload)
             .reply(200, CustomerWalletMock.responseTwo);
 
-        const validate = await CustomerWallet.Balance({
+        const validate = await CustomerWallet.updateWalletBalance({
             sandbox_key,
-            payload: data.Balance.payload,
+            payload: data.updateWalletBalance.payload,
             host,
             client_id,
         });
@@ -52,12 +52,12 @@ describe('Balance', () => {
 
     it('Should create wallet', async() => {
         scope
-            .post('/fcmb/wallet/Customerwallet/new', data.Create.payload)
+            .post('/fcmb/wallet/Customerwallet/new', data.createWallet.payload)
             .reply(200, CustomerWalletMock.responseTwo);
 
-        const validate = await CustomerWallet.Create({
+        const validate = await CustomerWallet.createWallet({
             sandbox_key,
-            payload: data.Create.payload,
+            payload: data.createWallet.payload,
             host,
             client_id,
         });
@@ -71,12 +71,12 @@ describe('Balance', () => {
 
     it('Should update wallet status', async() => {
         scope
-            .put('/fcmb/wallet/Customerwallet/Status', data.Customerwallet.payload)
+            .put('/fcmb/wallet/Customerwallet/Status', data.updateWalletStatus.payload)
             .reply(200, CustomerWalletMock.responseTwo);
 
-        const validate = await CustomerWallet.Customerwallet({
+        const validate = await CustomerWallet.updateWalletStatus({
             sandbox_key,
-            payload: data.Customerwallet.payload,
+            payload: data.updateWalletStatus.payload,
             host,
             client_id,
         });
@@ -91,12 +91,12 @@ describe('Balance', () => {
     it('Should validate wallet code', async() => {
         scope
             .get('/fcmb/wallet/validateCode')
-            .query(data.ValidateCode.params)
+            .query(data.validateWalletCode.params)
             .reply(200, CustomerWalletMock.responseTwo);
 
-        const validate = await CustomerWallet.ValidateCode({
+        const validate = await CustomerWallet.validateWalletCode({
             sandbox_key,
-            params: data.ValidateCode.params,
+            params: data.validateWalletCode.params,
             host,
             client_id,
         });

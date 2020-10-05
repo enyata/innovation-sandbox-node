@@ -13,12 +13,12 @@ const { sandbox_key, host, client_id } = data;
 describe('Balance', () => {
     it('Should create customer', async() => {
         scope
-            .post('/fcmb/wallet/Customer', data.CreateCustomer.payload)
+            .post('/fcmb/wallet/Customer', data.createCustomer.payload)
             .reply(200, CustomerMock.responseTwo);
 
-        const validate = await Customer.CreateCustomer({
+        const validate = await Customer.createCustomer({
             sandbox_key,
-            payload: data.CreateCustomer.payload,
+            payload: data.createCustomer.payload,
             host,
             client_id,
         });
@@ -32,12 +32,12 @@ describe('Balance', () => {
 
     it('Should Update customer details', async() => {
         scope
-            .put('/fcmb/wallet/Customer', data.UpdateCustomer.payload)
+            .put('/fcmb/wallet/Customer', data.updateCustomer.payload)
             .reply(200, CustomerMock.responseTwo);
 
-        const validate = await Customer.UpdateCustomer({
+        const validate = await Customer.updateCustomer({
             sandbox_key,
-            payload: data.UpdateCustomer.payload,
+            payload: data.updateCustomer.payload,
             host,
             client_id,
         });
@@ -54,7 +54,7 @@ describe('Balance', () => {
             .get('/fcmb/wallet/Customer/MobileNo')
             .reply(200, CustomerMock.responseTwo);
 
-        const validate = await Customer.MobileNo({
+        const validate = await Customer.getCustomerByMobileNo({
             sandbox_key,
             host,
             client_id,
@@ -69,12 +69,12 @@ describe('Balance', () => {
 
     it('Should update customer mobileNo', async() => {
         scope
-            .put('/fcmb/wallet/Customer/MobileNo', data.UpdateMobileNo.payload)
+            .put('/fcmb/wallet/Customer/MobileNo', data.updateCustomerMobileNo.payload)
             .reply(200, CustomerMock.responseTwo);
 
-        const validate = await Customer.UpdateMobileNo({
+        const validate = await Customer.updateCustomerMobileNo({
             sandbox_key,
-            payload: data.UpdateMobileNo.payload,
+            payload: data.updateCustomerMobileNo.payload,
             host,
             client_id,
         });
@@ -89,12 +89,12 @@ describe('Balance', () => {
     it('Should update customer name', async() => {
         scope
             .get('/fcmb/wallet/Customer/name')
-            .query(data.Name.params)
+            .query(data.nameEnquiry.params)
             .reply(200, CustomerMock.responseTwo);
 
-        const validate = await Customer.Name({
+        const validate = await Customer.nameEnquiry({
             sandbox_key,
-            params: data.Name.params,
+            params: data.nameEnquiry.params,
             host,
             client_id,
         });
@@ -108,12 +108,12 @@ describe('Balance', () => {
 
     it('Should set customer pin', async() => {
         scope
-            .post('/fcmb/wallet/Customer/Pin', data.Pin.payload)
+            .post('/fcmb/wallet/Customer/Pin', data.setPin.payload)
             .reply(200, CustomerMock.responseTwo);
 
-        const validate = await Customer.Pin({
+        const validate = await Customer.setPin({
             sandbox_key,
-            payload: data.Pin.payload,
+            payload: data.setPin.payload,
             host,
             client_id,
         });
@@ -127,12 +127,12 @@ describe('Balance', () => {
 
     it('Should SetTransaction Password', async() => {
         scope
-            .post('/fcmb/wallet/Customer/Password', data.Password.payload)
+            .post('/fcmb/wallet/Customer/Password', data.setTransactionPassword.payload)
             .reply(200, CustomerMock.responseTwo);
 
-        const validate = await Customer.Password({
+        const validate = await Customer.setTransactionPassword({
             sandbox_key,
-            payload: data.Password.payload,
+            payload: data.setTransactionPassword.payload,
             host,
             client_id,
         });

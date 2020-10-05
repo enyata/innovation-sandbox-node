@@ -10,9 +10,9 @@ exports.data = {
         },
     },
 
-    GetKyc: {},
+    getCustomerKYC: {},
 
-    CreateKyc: {
+    createCustomerKYC: {
         payload: {
             customerId: faker.random.alphaNumeric(),
             identificationId: faker.random.alphaNumeric(),
@@ -27,7 +27,7 @@ exports.data = {
         },
     },
 
-    UpdateKyc: {
+    updateCustomerKYC: {
         payload: {
             customerId: faker.random.alphaNumeric(),
             identificationNumber: faker.random.alphaNumeric(),
@@ -39,7 +39,7 @@ exports.data = {
         },
     },
 
-    KycStatus: {
+    updateKYCStatus: {
         payload: {
             customerId: faker.random.alphaNumeric(),
             status: faker.random.alphaNumeric(),

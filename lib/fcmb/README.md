@@ -66,12 +66,12 @@ This is the Id of the customer
 
 ### *appToken*
 
-## fcmb.Authentication.ValidateByCustomerId(credentials)
+## fcmb.Authentication.validateByCustomerId(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Authentication.ValidateByCustomerId({
+fcmb.Authentication.validateByCustomerId({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -109,12 +109,12 @@ This is the last 4 digits
 
 This is the customer account number
 
-## fcmb.Authenticate.Last4Digits(credentials)
+## fcmb.Authenticate.validateByLast4Digit(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Authenticate.Last4Digits({
+fcmb.Authenticate.validateByLast4Digit({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -158,12 +158,12 @@ This is the customer account number
 
 This is the expirey date of the customer ATM card
 
-## fcmb.Authenticate.AtmPIN(credentials)
+## fcmb.Authenticate.validateByAtmPin(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Authenticate.AtmPIN({
+fcmb.Authenticate.validateByAtmPin({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -197,12 +197,10 @@ Request Body
 
 This is the card name to be inserted
 
-## fcmb.Authenticate.Last4Digits(credentials)
-
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Cards.CardType({
+fcmb.Cards.insertCardType({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -225,10 +223,8 @@ Retrieve Card Types.
 
 The module accepts options as objects of key-value.
 
-## fcmb.Authenticate.Last4Digits(credentials)
-
 ```javascript
-fcmb.Cards.RetrieveCardType({
+fcmb.Cards.retrieveCardType({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -260,12 +256,10 @@ This is the card id to be updated
 
 This is the card name to be updated with
 
-## fcmb.Authenticate.Last4Digits(credentials)
-
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Cards.UpdateCardType({
+fcmb.Cards.updateCardType({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -309,12 +303,10 @@ This is the account name of the card requested
 
 ### *branchSOL*
 
-## fcmb.Authenticate.Last4Digits(credentials)
-
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Cards.CardRequest({
+fcmb.Cards.createCardRequest({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -342,10 +334,8 @@ Retrieve Card Requests.
 
 The module accepts options as objects of key-value.
 
-## fcmb.Authenticate.Last4Digits(credentials)
-
 ```javascript
-fcmb.Cards.RetrieveCardRequest({
+fcmb.Cards.retrieveCardRequest({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -417,12 +407,12 @@ Transaction Charges
 
 ###  *platformType*
 
-## fcmb.Payments.B2btransfers(credentials)
+## fcmb.Payments.b2bSingleTransfer(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Payment.B2btransfers({
+fcmb.Payment.b2bSingleTransfer({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -487,12 +477,12 @@ Transaction Remarks
 
 Transaction Report Code
 
-## fcmb.Payments.B2binternaltransfers(credentials)
+## fcmb.Payments.internalB2BSingleTransfer(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Payments.B2binternaltransfers({
+fcmb.Payments.internalB2BSingleTransfer({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -560,12 +550,12 @@ Branch Code
 
 Transaction Narration
 
-## fcmb.Payments.Internaltransfers(credentials)
+## fcmb.Payments.createInternalTransfer(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Payments.Internaltransfers({
+fcmb.Payments.createInternalTransfer({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -611,14 +601,12 @@ Optional Query Params
 
 Account Number
 
-## fcmb.Payments.InternaltransfersDateRange(credentials)
-
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
-## fcmb.Payments.RetrieveInternaltransfers(credentials)
+## fcmb.Payments.getInternalTransfer(credentials)
 
 ```javascript
-fcmb.Payments.RetrieveInternaltransfers({
+fcmb.Payments.getInternalTransfer({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -661,12 +649,12 @@ Page Number
 
 Page Size
 
-## fcmb.Payments.InternaltransfersDateRange(credentials)
+## fcmb.Payments.internalTransferDateRange(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Payments.InternaltransfersDateRange({
+fcmb.Payments.internalTransferDateRange({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -700,12 +688,12 @@ Query Params
 
 Stan
 
-## fcmb.Payments.InternaltransfersStatus(credentials)
+## fcmb.Payments.internalTransferStatus(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Payments.InternaltransfersStatus({
+fcmb.Payments.internalTransferStatus({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -780,12 +768,12 @@ Transaction Charges
 
 ###  *platformType*
 
-## fcmb.Payments.Niptransfers(credentials)
+## fcmb.Payments.nipSingleFundsTransfer(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Payments.Niptransfers({
+fcmb.Payments.nipSingleFundsTransfer({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -842,12 +830,12 @@ Page Number
 
 Page Size
 
-## fcmb.Payments.NiptransfersDateRange(credentials)
+## fcmb.Payments.nipTransferDateRange(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Payments.NiptransfersDateRange({
+fcmb.Payments.nipTransferDateRange({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -881,12 +869,12 @@ Request Body
 
 Amount
 
-## fcmb.Payments.Nipcharge(credentials)
+## fcmb.Payments.insertNIPCharge(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Payments.Nipcharge({
+fcmb.Payments.insertNIPCharge({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -909,10 +897,10 @@ Get List of NIP Banks
 
 The module accepts options as objects of key-value.
 
-## fcmb.Payments.Nipbanks(credentials)
+## fcmb.Payments.getNIPBanks(credentials)
 
 ```javascript
-fcmb.Payments.Nipbanks({
+fcmb.Payments.getNIPBanks({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -948,12 +936,12 @@ Channel Code
 
 Account Number
 
-## fcmb.Payments.Nipname(credentials)
+## fcmb.Payments.nipNameEnquiry(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Payments.Nipname({
+fcmb.Payments.nipNameEnquiry({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -986,12 +974,12 @@ Query Params
 
 Trace Id
 
-## fcmb.Payments.NipStatus(credentials)
+## fcmb.Payments.nipTransferStatus(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Payments.NipStatus({
+fcmb.Payments.nipTransferStatus({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1064,12 +1052,12 @@ Serial Number
 
 Status Two
 
-## fcmb.Payments.Nibssstatus(credentials)
+## fcmb.Payments.nibssPaymentStatus(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Payments.Nibssstatus({
+fcmb.Payments.nibssPaymentStatus({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1111,12 +1099,12 @@ Query Params
 
 Account Number
 
-## fcmb.Wallets.CustomerWallet.GetBalance(credentials)
+## fcmb.Wallets.CustomerWallet.retrieveWalletBalance(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.CustomerWallet.GetBalance({
+fcmb.Wallets.CustomerWallet.retrieveWalletBalance({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1163,12 +1151,12 @@ Updated By
 
 Account Number
 
-## fcmb.Wallets.CustomerWallet.Balance(credentials)
+## fcmb.Wallets.CustomerWallet.updateWalletBalance(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.CustomerWallet.Balance({
+fcmb.Wallets.CustomerWallet.updateWalletBalance({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1219,12 +1207,12 @@ Created By
 
 Account Name
 
-## fcmb.Wallets.CustomerWallet.Balance(credentials)
+## fcmb.Wallets.CustomerWallet.createWallet(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.CustomerWallet.Create({
+fcmb.Wallets.CustomerWallet.createWallet({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1267,12 +1255,12 @@ Wallet Status
 
 Modified By
 
-## fcmb.Wallets.CustomerWallet.Customerwallet(credentials)
+## fcmb.Wallets.CustomerWallet.updateWalletStatus(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.CustomerWallet.Customerwallet({
+fcmb.Wallets.CustomerWallet.updateWalletStatus({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1305,12 +1293,12 @@ Query Params
 
 Validating Code
 
-## fcmb.Wallets.CustomerWallet.GetBalance(credentials)
+## fcmb.Wallets.CustomerWallet.retrieveWalletBalance(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.CustomerWallet.ValidateCode({
+fcmb.Wallets.CustomerWallet.validateWalletCode({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1459,12 +1447,12 @@ Customer Bank Link Id
 
 ### *sTransactionPassword*
 
-## fcmb.Wallets.Customer.CreateCustomer(credentials)
+## fcmb.Wallets.Customer.createCustomer(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Customer.CreateCustomer({
+fcmb.Wallets.Customer.createCustomer({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1626,12 +1614,12 @@ Customer Tier
 
 Customer Bank Link Id
 
-## fcmb.Wallets.Customer.UpdateCustomer(credentials)
+## fcmb.Wallets.Customer.updateCustomer(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Customer.UpdateCustomer({
+fcmb.Wallets.Customer.updateCustomer({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1687,12 +1675,12 @@ Optional Query Params
 
 Mobile Number
 
-## fcmb.Wallets.Customer.MobileNo(credentials)
+## fcmb.Wallets.Customer.getCustomerByMobileNo(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Customer.MobileNo({
+fcmb.Wallets.Customer.getCustomerByMobileNo({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1727,12 +1715,12 @@ Customer Id
 
 New Mobile Number
 
-## fcmb.Wallets.Customer.UpdateMobileNo(credentials)
+## fcmb.Wallets.Customer.updateCustomerMobileNo(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Customer.UpdateMobileNo({
+fcmb.Wallets.Customer.updateCustomerMobileNo({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1768,12 +1756,12 @@ Mobile Number
 
 Internal Account Number
 
-## fcmb.Wallets.Customer.Name(credentials)
+## fcmb.Wallets.Customer.nameEnquiry(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Customer.Name({
+fcmb.Wallets.Customer.nameEnquiry({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1809,12 +1797,12 @@ Customer Id
 
 New Password
 
-## fcmb.Wallets.Customer.Password(credentials)
+## fcmb.Wallets.Customer.setTransactionPassword(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Customer.Password({
+fcmb.Wallets.Customer.setTransactionPassword({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1850,12 +1838,12 @@ Customer Id
 
 New Pin
 
-## fcmb.Wallets.Customer.Pin(credentials)
+## fcmb.Wallets.Customer.setPin(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Customer.Pin({
+fcmb.Wallets.Customer.setPin({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1887,12 +1875,12 @@ Query Params
 
 Customer Id
 
-## fcmb.Wallets.Kyc.GetKyc(credentials)
+## fcmb.Wallets.Kyc.getCustomerKYC(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Kyc.GetKyc({
+fcmb.Wallets.Kyc.getCustomerKYC({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -1959,12 +1947,12 @@ Representative Phone Number
 
 Representative Email
 
-## fcmb.Wallets.Kyc.CreateKyc(credentials)
+## fcmb.Wallets.Kyc.createCustomerKYC(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Kyc.CreateKyc({
+fcmb.Wallets.Kyc.createCustomerKYC({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -2028,12 +2016,12 @@ Representative Phone Number
 
 Representative Email
 
-## fcmb.Wallets.Kyc.UpdateKyc(credentials)
+## fcmb.Wallets.Kyc.updateCustomerKYC(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Kyc.UpdateKyc({
+fcmb.Wallets.Kyc.updateCustomerKYC({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -2074,12 +2062,12 @@ Customer Id
 
 Status
 
-## fcmb.Wallets.Kyc.KycStatus(credentials)
+## fcmb.Wallets.Kyc.updateKYCStatus(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Kyc.KycStatus({
+fcmb.Wallets.Kyc.updateKYCStatus({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -2124,12 +2112,12 @@ Start Date
 
 End date
 
-## fcmb.Wallets.Transaction.AccountNumber(credentials)
+## fcmb.Wallets.Transaction.getTransactionHistory(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Transaction.AccountNumber({
+fcmb.Wallets.Transaction.getTransactionHistory({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -2162,12 +2150,12 @@ Query Params
 
 Transaction Category Id
 
-## fcmb.Wallets.Transaction.Id(credentials)
+## fcmb.Wallets.Transaction.retrieveWalletTransactionDetails(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Transaction.Id({
+fcmb.Wallets.Transaction.retrieveWalletTransactionDetails({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -2248,12 +2236,12 @@ Source Scheme Code
 
 Charges Fee And Account
 
-## fcmb.Wallets.Transaction.W2Account(credentials)
+## fcmb.Wallets.Transaction.wallet2AccountTransfer(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Transaction.W2Account({
+fcmb.Wallets.Transaction.wallet2AccountTransfer({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -2309,12 +2297,12 @@ Optional Query Params
 
 Phone Number
 
-## fcmb.Wallets.Transaction.BalanceEnqiry(credentials)
+## fcmb.Wallets.Transaction.balanceEnquiry(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Transaction.BalanceEnqiry({
+fcmb.Wallets.Transaction.balanceEnquiry({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -2362,12 +2350,12 @@ Status
 
 Created By
 
-## fcmb.Wallets.Transaction.BankLink(credentials)
+## fcmb.Wallets.Transaction.createBankLink(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Transaction.BankLink({
+fcmb.Wallets.Transaction.createBankLink({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -2400,12 +2388,12 @@ Optional Query Params
 
 Phone Number
 
-## fcmb.Wallets.Transaction.Dataplan(credentials)
+## fcmb.Wallets.Transaction.getDataPlan(credentials)
 
 In additions to the credentials stated above a params key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Transaction.Dataplan({
+fcmb.Wallets.Transaction.getDataPlan({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -2474,12 +2462,12 @@ Scheme Code
 
 ### *msisdn*
 
-## fcmb.Wallets.Transaction.Airtime(credentials)
+## fcmb.Wallets.Transaction.airtimeTopUp(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Transaction.Airtime({
+fcmb.Wallets.Transaction.airtimeTopUp({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
@@ -2551,12 +2539,12 @@ Source Phone Number
 
 Scheme Code
 
-## fcmb.Wallets.Transaction.Data(credentials)
+## fcmb.Wallets.Transaction.transferData(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-fcmb.Wallets.Transaction.Data({
+fcmb.Wallets.Transaction.transferData({
     sandbox_key: "Your sandbox key",
     client_id: "Your x-ibm-client-id || f",
     accept: "application/json",
