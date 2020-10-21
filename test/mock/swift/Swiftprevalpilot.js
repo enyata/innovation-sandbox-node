@@ -3,7 +3,6 @@ const faker = require('faker');
 exports.data = {
     sandbox_key: faker.random.alphaNumeric(),
     host: faker.internet.url(),
-    Authorization: faker.random.alphaNumeric(),
     verification: {
         payload: {
             correlation_identifier: 'SCENARIO1-CORRID-002',

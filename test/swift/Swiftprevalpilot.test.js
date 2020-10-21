@@ -11,7 +11,7 @@ const { data } = SwiftPrevalPilottMock;
 const scope = nock(data.host);
 const { expect } = chai;
 
-const { sandbox_key, host, Authorization } = data;
+const { sandbox_key, host } = data;
 
 describe('Swift Swiftprevalpilot', () => {
     it('Should return succesfull verification', async() => {
@@ -23,7 +23,6 @@ describe('Swift Swiftprevalpilot', () => {
             sandbox_key,
             host,
             body: data.verification.payload,
-            Authorization,
             'Content-Type': 'application/json',
             LAUApplicationID: `${faker.random.number(4)}`,
             LAUCallTime: faker.date.recent(),
