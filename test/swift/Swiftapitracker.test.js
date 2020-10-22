@@ -18,7 +18,7 @@ describe('Swift Api Tracker', () => {
             .put('/swift/swift-api-tracker/v4/payments/dfvdie4jdjfn/status')
             .reply(200, SwiftApiTrackerMock.paymentStatusTracker);
 
-        const validate = await SwiftApiTracker.paymentStatusTracker({
+        const validate = await SwiftApiTracker.status({
             sandbox_key,
             host,
             Authorization,
@@ -33,7 +33,7 @@ describe('Swift Api Tracker', () => {
             .get('/swift/swift-api-tracker/v4/payments/dfvdie4jdjfn/transactions')
             .reply(200, SwiftApiTrackerMock.transactionDetails);
 
-        const validate = await SwiftApiTracker.transactionDetails({
+        const validate = await SwiftApiTracker.transaction({
             sandbox_key,
             host,
             Authorization,

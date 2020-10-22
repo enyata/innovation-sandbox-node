@@ -10,14 +10,12 @@ exports.data = {
             grant_type: 'password',
         },
         'Content-Type': 'application/json',
-        Authorization: {
-            customer_key: faker.random.alphaNumeric(29),
-            customer_secret: faker.random.alphaNumeric(17),
-        },
+        consumer_key: faker.random.alphaNumeric(29),
+        consumer_secret: faker.random.alphaNumeric(17),
     },
 };
 
-exports.oauthAuthorization = {
+exports.oauth2 = {
     refresh_token_expires_in: '86399',
     token_type: 'Bearer',
     access_token: faker.random.alphaNumeric(7),

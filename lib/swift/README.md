@@ -32,7 +32,7 @@ Below is a list of optiional credentials.
 
 It is used in the header. What it takes varies by API.
 
-## *Oauth Authorization([options])*
+## *Oauth2 Authorization([options])*
 
 Token Authorization
 
@@ -62,22 +62,22 @@ Request Header
 
 This can be found in the innovation sandbox dashboard after sign up.
 
-### customer_key
+### consumer_key
 
-Your customer key
+Your consumer key
 
-### customer_secret
+### consumer_secret
 
-Your customer secret
+Your consumer secret
 
 ### content-type
 
-## swift.Oauth2.oauthAuthorization(credentials)
+## swift.Oauth2.oauth2(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-swift.Oauth2.oauthAuthorization({
+swift.Authorization.oauth2({
     sandbox_key: "Your sandbox key",
     customer_key: "Your customer key || umNvx0EX2LelvDuoG4L4LMA0w2uKAApX",
     customer_secret: "Your customer secret || blOzfCw2tTtGU9xu"
@@ -116,12 +116,12 @@ Your access token
 
 ### content-type
 
-## swift.SwiftApiTracker.paymentStatusTracker(credentials)
+## swift.SwiftApiTracker.status(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-swift.SwiftApiTracker.paymentStatusTracker({
+swift.SwiftApiTracker.status({
   sandbox_key: "Your sandbox key",
   "content-type": "application/json",
   access_token: "Your Access Token || o3VaGWKuDyE9fWAP8uv0Vy09s0Tb",
@@ -154,12 +154,12 @@ Your access token
 
 ### content-type
 
-## swift.SwiftApiTracker.transactionDetails(credentials)
+## swift.SwiftApiTracker.transaction(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-swift.SwiftApiTracker.transactionDetails({
+swift.SwiftApiTracker.transaction({
   sandbox_key: "Your sandbox key",
   "content-type": "application/json",
   access_token: "Your Access Token || o3VaGWKuDyE9fWAP8uv0Vy09s0Tb",
@@ -329,7 +329,7 @@ swift.Swiftprevalpilot.verification({
 ___
 
 
-## *Swift Gpifor Corporate Transaction([options])*
+## *Swift GPI for Corporate Transaction([options])*
 
 This API provides the status of all Pay and trace transactions that have been updated within the specified timeframe.
 
