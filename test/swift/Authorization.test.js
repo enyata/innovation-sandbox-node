@@ -3,7 +3,7 @@ const nock = require('nock');
 
 const Oauth2 = require('../../lib/swift/Authorization');
 
-const Oauth2Mock = require('../mock/swift/Oauth2');
+const Oauth2Mock = require('../mock/swift/Authorization');
 
 const { data } = Oauth2Mock;
 

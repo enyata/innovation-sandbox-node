@@ -72,20 +72,20 @@ Your consumer secret
 
 ### content-type
 
-## swift.Oauth2.oauth2(credentials)
+## swift.Authorization.oauth2(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
 swift.Authorization.oauth2({
     sandbox_key: "Your sandbox key",
-    customer_key: "Your customer key || umNvx0EX2LelvDuoG4L4LMA0w2uKAApX",
-    customer_secret: "Your customer secret || blOzfCw2tTtGU9xu"
+    consumer_key: "Your customer key || umNvx0EX2LelvDuoG4L4LMA0w2uKAApX",
+    consumer_secret: "Your customer secret || blOzfCw2tTtGU9xu"
     "content-type": "application/json",
     payload: {
         username: "Registration Username || aerbukfvdsf",
         password: "Registration Password || efjvqhdfbvajdfbnvjadf",
-       grant_type: "Grant Type || password"
+        grant_type: "Grant Type || password"
     },
     host: "Your host url || https://sandboxapi.fsi.ng"
 }).then(res => {
@@ -296,12 +296,12 @@ Your access token
 
 ### content-type
 
-## swift.Swiftprevalpilot.verification(credentials)
+## swift.SwiftPreValPilot.verification(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-swift.Swiftprevalpilot.verification({
+swift.SwiftPreValPilot.verification({
   sandbox_key: "Your sandbox key",
   "content-type": "application/json",
   access_token: "Your Access Token || o3VaGWKuDyE9fWAP8uv0Vy09s0Tb",
@@ -359,12 +359,12 @@ client
 
 ### content-type
 
-## swift.Swiftgpiforcorporates.transactions(credentials)
+## swift.SwiftGpiForCorporates.transactions(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-swift.Swiftgpiforcorporates.transactions({
+swift.SwiftGpiForCorporates.transactions({
   sandbox_key: "Your sandbox key",
   "content-type": "application/json",
   access_token: "Your Access Token || o3VaGWKuDyE9fWAP8uv0Vy09s0Tb",
@@ -415,12 +415,12 @@ Query Params
 
 transaction status
 
-## swift.Swiftgpiforcorporates.inbound(credentials)
+## swift.SwiftGpiForCorporates.inbound(credentials)
 
 In additions to the credentials stated above a payload key with addition request credentials as object of key values should be added to the object. For example
 
 ```javascript
-swift.Swiftgpiforcorporates.inbound({
+swift.SwiftGpiForCorporates.inbound({
   sandbox_key: "Your sandbox key",
   "content-type": "application/json",
   access_token: "Your Access Token || o3VaGWKuDyE9fWAP8uv0Vy09s0Tb",,
