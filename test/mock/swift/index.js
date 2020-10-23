@@ -1,8 +1,8 @@
 const Oauth2Mock = require('./Authorization');
 const KycMock = require('./Kyc');
-const SwiftApiTracker = require('./SwiftApiTracker');
-const SwiftGpiforCorporate = require('./SwiftGpiForCorporates');
-const SwiftPrevalPilot = require('./SwiftPreValPilot');
+const SwiftApiTracker = require('./Swiftapitracker');
+const SwiftGpiforCorporate = require('./Swiftgpiforcorporates');
+const SwiftPrevalPilot = require('./Swiftprevalpilot');
 
 module.exports = {
     Oauth2Mock,
