@@ -2,9 +2,9 @@ const chai = require('chai');
 const nock = require('nock');
 const faker = require('faker');
 
-const SwiftGpiforCorporate = require('../../lib/swift/SwiftGpiForCorporates');
+const SwiftGpiforCorporate = require('../../lib/swift/Swiftgpiforcorporates');
 
-const SwiftGpiforCorporateMock = require('../mock/swift/SwiftGpiForCorporates');
+const SwiftGpiforCorporateMock = require('../mock/swift/Swiftgpiforcorporates');
 
 const { data } = SwiftGpiforCorporateMock;
 
