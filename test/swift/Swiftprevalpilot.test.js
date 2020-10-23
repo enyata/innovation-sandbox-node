@@ -2,9 +2,9 @@ const chai = require('chai');
 const nock = require('nock');
 const faker = require('faker');
 
-const SwiftPrevalPilot = require('../../lib/swift/SwiftPreValPilot');
+const SwiftPrevalPilot = require('../../lib/swift/Swiftprevalpilot');
 
-const SwiftPrevalPilottMock = require('../mock/swift/SwiftPreValPilot');
+const SwiftPrevalPilottMock = require('../mock/swift/Swiftprevalpilot');
 
 const { data } = SwiftPrevalPilottMock;
 
