@@ -1,7 +1,7 @@
 const chai = require('chai');
 const nock = require('nock');
 
-const SwiftApiTracker = require('../../lib/swift/Swiftapitracker');
+const SwiftApiTracker = require('../../lib/swift/SwiftApiTracker');
 
 const SwiftApiTrackerMock = require('../mock/swift/Swiftapitracker');
 
