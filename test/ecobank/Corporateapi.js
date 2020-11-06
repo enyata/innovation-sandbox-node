@@ -11,7 +11,7 @@ const { expect } = chai;
 
 const { sandbox_key, host } = data;
 
-describe.only('corporateapi', () => {
+describe('corporateapi', () => {
     it('Allows merchants to receive payments via debit and credit cards from customers', async() => {
         scope
             .post('/ecobank/corporateapi/merchant/card', data.card.payload)
@@ -83,5 +83,76 @@ describe.only('corporateapi', () => {
         expect(validate).to.be.an('object');
         expect(validate.data).to.be.an('object');
         expect(validate.data.headerRequest).to.be.an('object');
+    });
+    it('Allows merchants to register and be assigned a terminal to recieve Qr payments', async() => {
+        scope
+            .post('/ecobank/corporateapi/merchant/createqr', data.merchantQrCreation.payload)
+            .reply(200, CorporateapiMock.merchantQrCreation);
+
+        const validate = await Corporateapi.merchantQrCreation({
+            sandbox_key,
+            payload: data.merchantQrCreation.payload,
+            host,
+            Authorization: data.merchantQrCreation.access_token,
+        });
+
+        expect(validate.message).to.equal('OK');
+        expect(validate).to.be.an('object');
+        expect(validate.data).to.be.an('object');
+        expect(validate.data.response_code).to.equal('200');
+        expect(validate.data.response_message).to.equal('success');
+    });
+    it('generate EcobankPay Dynamic Qr', async() => {
+        scope
+            .post('/ecobank/corporateapi/merchant/qr', data.dynamicQrPayment.payload)
+            .reply(200, CorporateapiMock.dynamicQrPayment);
+
+        const validate = await Corporateapi.dynamicQrPayment({
+            sandbox_key,
+            payload: data.dynamicQrPayment.payload,
+            Authorization: data.dynamicQrPayment.access_token,
+            host,
+        });
+
+
+        expect(validate.message).to.equal('OK');
+        expect(validate).to.be.an('object');
+        expect(validate.data).to.be.an('object');
+        expect(validate.data.response_code).to.equal('200');
+        expect(validate.data.response_status).to.equal('success');
+    });
+    it('Merchant are able to view their Statements', async() => {
+        scope
+            .post('/ecobank/corporateapi/merchant/statement', data.statementGeneration.payload)
+            .reply(200, CorporateapiMock.statementGeneration);
+
+        const validate = await Corporateapi.statementGeneration({
+            sandbox_key,
+            payload: data.statementGeneration.payload,
+            Authorization: data.statementGeneration.access_token,
+            host,
+        });
+        expect(validate.message).to.equal('OK');
+        expect(validate).to.be.an('object');
+        expect(validate.data).to.be.an('object');
+        expect(validate.data.response_code).to.equal('200');
+        expect(validate.data.response_message).to.equal('success');
+    });
+    it('Ecobank Partners use this module to make payment to their customers', async() => {
+        scope
+            .post('/ecobank/corporateapi/payment/payment', data.payment.payload)
+            .reply(200, CorporateapiMock.payment);
+
+        const validate = await Corporateapi.payment({
+            sandbox_key,
+            payload: data.payment.payload,
+            host,
+        });
+
+        expect(validate.message).to.equal('OK');
+        expect(validate).to.be.an('object');
+        expect(validate.data).to.be.an('object');
+        expect(validate.data.response_code).to.equal('200');
+        expect(validate.data.response_message).to.equal('success');
     });
 });
