@@ -12,7 +12,7 @@ const {
     sandbox_key, host, client_secret, client_id, request_token,
 } = data;
 
-describe.only('EnterpriseIntegration', () => {
+describe('EnterpriseIntegration', () => {
     it('generate a token that allows money to be redeemed from an Ecobank ATM terminal anywhere in the country', async() => {
         scope
             .post('/ecobank/enterpriseIntegration/e-eco-api/xpress/token', data.generateToken.payload)
