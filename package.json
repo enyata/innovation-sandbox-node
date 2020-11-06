@@ -4,7 +4,8 @@
   "description": "Node.js package for Innovation Sandbox",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && mocha --recursive --timeout 30000",
+    "pretest": "npm run lint",
+    "test": "mocha --recursive --timeout 30000",
     "lint": "eslint --fix lib/ index.js --ext .js "
   },
   "repository": {
