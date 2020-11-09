@@ -16,3 +16,4 @@ $ npm install innovation-sandbox --save
 [fcmb](https://github.com/enyata/innovation-sandbox-node/blob/master/lib/fcmb/README.md)
 [swift](https://github.com/enyata/innovation-sandbox-node/blob/master/lib/swift/README.md)
 
+[ecobank](https://github.com/enyata/innovation-sandbox-node/blob/master/lib/ecobank/README.md)

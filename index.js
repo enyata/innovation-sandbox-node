@@ -5,6 +5,7 @@ const union = require('./lib/union');
 const relianceHMO = require('./lib/relianceHMO');
 const fcmb = require('./lib/fcmb');
 const swift = require('./lib/swift');
+const ecobank = require('./lib/ecobank');
 
 module.exports = {
     nibss,
@@ -14,4 +15,5 @@ module.exports = {
     relianceHMO,
     fcmb,
     swift,
+    ecobank,
 };
