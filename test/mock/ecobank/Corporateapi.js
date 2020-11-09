@@ -27,7 +27,7 @@ exports.data = {
                 merchantID: faker.random.alphaNumeric(),
                 secureSecret: faker.random.alphaNumeric(),
             },
-            secureHash: faker.random.alphaNumeric(),
+            consumer_lab_key: faker.random.alphaNumeric(),
         },
         access_token: faker.random.alphaNumeric(),
     },

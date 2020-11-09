@@ -11,7 +11,7 @@ const { expect } = chai;
 
 const { sandbox_key, host } = data;
 
-describe.only('corporateapi', () => {
+describe.skip('corporateapi', () => {
     it('Allows merchants to receive payments via debit and credit cards from customers', async() => {
         scope
             .post('/ecobank/corporateapi/merchant/card', data.card.payload)
