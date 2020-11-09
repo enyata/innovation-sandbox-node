@@ -18,7 +18,7 @@ describe('RapidTransfer', () => {
             .post('/ecobank/RapidTransfer/channelServices/initiateReceiveForAgent', data.initiateReceiveForAgent.payload)
             .reply(200, RapidTransferMock.initiateReceiveForAgent);
 
-        const validate = await RapidTransfer.initiateReceiveForAgent({
+        const validate = await RapidTransfer.initiateAgentReceive({
             sandbox_key,
             payload: data.initiateReceiveForAgent.payload,
             request_source_code,
@@ -38,7 +38,7 @@ describe('RapidTransfer', () => {
             .post('/ecobank/RapidTransfer/channelServices/completeReceive', data.receiveComplete.payload)
             .reply(200, RapidTransferMock.receiveComplete);
 
-        const validate = await RapidTransfer.receiveComplete({
+        const validate = await RapidTransfer.completeReceive({
             sandbox_key,
             payload: data.receiveComplete.payload,
             request_source_code,

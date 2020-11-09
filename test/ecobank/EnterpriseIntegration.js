@@ -38,7 +38,7 @@ describe('EnterpriseIntegration', () => {
             .post('/ecobank/enterpriseIntegration/e-eco-api/accout/nameInquiry', data.nameInquiry.payload)
             .reply(200, EnterpriseIntegrationMock.nameInquiry);
 
-        const validate = await EnterpriseIntegration.nameInquiry({
+        const validate = await EnterpriseIntegration.accountNameInquiry({
             sandbox_key,
             payload: data.nameInquiry.payload,
             request_token,
@@ -59,7 +59,7 @@ describe('EnterpriseIntegration', () => {
             .post('/ecobank/enterpriseIntegration/e-eco-api/account/balance', data.fetchAccountBalance.payload)
             .reply(200, EnterpriseIntegrationMock.fetchAccountBalance);
 
-        const validate = await EnterpriseIntegration.fetchAccountBalance({
+        const validate = await EnterpriseIntegration.balance({
             sandbox_key,
             payload: data.fetchAccountBalance.payload,
             request_token,
@@ -79,7 +79,7 @@ describe('EnterpriseIntegration', () => {
             .post('/ecobank/enterpriseIntegration/e-eco-api/transfer', data.transferFund.payload)
             .reply(200, EnterpriseIntegrationMock.transferFund);
 
-        const validate = await EnterpriseIntegration.transferFund({
+        const validate = await EnterpriseIntegration.transfer({
             sandbox_key,
             payload: data.transferFund.payload,
             request_token,
@@ -99,7 +99,7 @@ describe('EnterpriseIntegration', () => {
             .post('/ecobank/enterpriseIntegration/e-eco-api/transaction/status', data.checkTransactionStatus.payload)
             .reply(200, EnterpriseIntegrationMock.checkTransactionStatus);
 
-        const validate = await EnterpriseIntegration.checkTransactionStatus({
+        const validate = await EnterpriseIntegration.transactionStatus({
             sandbox_key,
             payload: data.checkTransactionStatus.payload,
             request_token,
@@ -160,7 +160,7 @@ describe('EnterpriseIntegration', () => {
             .post('/ecobank/enterpriseIntegration/e-unified-api/mock/rt/agent/completeReceive', data.completeReceiveForAgent.payload)
             .reply(200, EnterpriseIntegrationMock.completeReceiveForAgent);
 
-        const validate = await EnterpriseIntegration.completeReceiveForAgent({
+        const validate = await EnterpriseIntegration.completeReceive({
             sandbox_key,
             payload: data.completeReceiveForAgent.payload,
             request_token,
@@ -238,7 +238,7 @@ describe('EnterpriseIntegration', () => {
             .post('/ecobank/enterpriseIntegration/e-international-remittance/international/fetchRateFees', data.fetchFeesAndRate.payload)
             .reply(200, EnterpriseIntegrationMock.fetchFeesAndRate);
 
-        const validate = await EnterpriseIntegration.fetchFeesAndRate({
+        const validate = await EnterpriseIntegration.fetchRateFees({
             sandbox_key,
             payload: data.fetchFeesAndRate.payload,
             request_token,

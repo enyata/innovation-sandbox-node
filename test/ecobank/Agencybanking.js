@@ -51,7 +51,7 @@ describe('AgencyBanking', () => {
             .post('/ecobank/agencybanking/services/thirdpartyagencybanking/getbalance', data.getAccountBalance.payload)
             .reply(200, AgencyBankingMock.getAccountBalance);
 
-        const validate = await AgencyBanking.getAccountBalance({
+        const validate = await AgencyBanking.balance({
             sandbox_key,
             payload: data.getAccountBalance.payload,
             host,
@@ -66,7 +66,7 @@ describe('AgencyBanking', () => {
             .post('/ecobank/agencybanking/services/thirdpartyagencybanking/getcustomerdetails', data.customerAccDetails.payload)
             .reply(200, AgencyBankingMock.customerAccDetails);
 
-        const validate = await AgencyBanking.customerAccDetails({
+        const validate = await AgencyBanking.customerDetails({
             sandbox_key,
             payload: data.customerAccDetails.payload,
             host,

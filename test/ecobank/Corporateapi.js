@@ -11,13 +11,13 @@ const { expect } = chai;
 
 const { sandbox_key, host } = data;
 
-describe('corporateapi', () => {
+describe.only('corporateapi', () => {
     it('Allows merchants to receive payments via debit and credit cards from customers', async() => {
         scope
             .post('/ecobank/corporateapi/merchant/card', data.card.payload)
             .reply(200, CorporateapiMock.card);
 
-        const validate = await Corporateapi.card({
+        const validate = await Corporateapi.cardPayment({
             sandbox_key,
             payload: data.card.payload,
             Authorization: data.card.access_token,
@@ -35,7 +35,7 @@ describe('corporateapi', () => {
             .post('/ecobank/corporateapi/user/token', data.token.payload)
             .reply(200, CorporateapiMock.token);
 
-        const validate = await Corporateapi.generateAccessToken({
+        const validate = await Corporateapi.generateToken({
             sandbox_key,
             payload: data.token.payload,
             host,
@@ -72,7 +72,7 @@ describe('corporateapi', () => {
             .post('/ecobank/corporateapi/merchant/getmcc', data.merchantCategoryCode.payload)
             .reply(200, CorporateapiMock.merchantCategoryCode);
 
-        const validate = await Corporateapi.merchantCategoryCode({
+        const validate = await Corporateapi.mcc({
             sandbox_key,
             payload: data.merchantCategoryCode.payload,
             host,
@@ -89,7 +89,7 @@ describe('corporateapi', () => {
             .post('/ecobank/corporateapi/merchant/createqr', data.merchantQrCreation.payload)
             .reply(200, CorporateapiMock.merchantQrCreation);
 
-        const validate = await Corporateapi.merchantQrCreation({
+        const validate = await Corporateapi.createQR({
             sandbox_key,
             payload: data.merchantQrCreation.payload,
             host,
@@ -107,7 +107,7 @@ describe('corporateapi', () => {
             .post('/ecobank/corporateapi/merchant/qr', data.dynamicQrPayment.payload)
             .reply(200, CorporateapiMock.dynamicQrPayment);
 
-        const validate = await Corporateapi.dynamicQrPayment({
+        const validate = await Corporateapi.QR({
             sandbox_key,
             payload: data.dynamicQrPayment.payload,
             Authorization: data.dynamicQrPayment.access_token,
@@ -126,7 +126,7 @@ describe('corporateapi', () => {
             .post('/ecobank/corporateapi/merchant/statement', data.statementGeneration.payload)
             .reply(200, CorporateapiMock.statementGeneration);
 
-        const validate = await Corporateapi.statementGeneration({
+        const validate = await Corporateapi.statement({
             sandbox_key,
             payload: data.statementGeneration.payload,
             Authorization: data.statementGeneration.access_token,
